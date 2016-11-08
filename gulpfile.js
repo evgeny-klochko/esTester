@@ -11,34 +11,28 @@ const ngAnnotate = require('gulp-ng-annotate');
 const gulpIf = require('gulp-if');
 const cached = require('gulp-cached');
 const remember = require('gulp-remember');
+const cleanCSS = require('gulp-clean-css');
 
 
 gulp.task('styles:app', function() {
 	return gulp.src('src/sass/**/*.scss')
 		.pipe(sass())
-		.on('error-sass', notify.onError())
+		.on('error', notify.onError())
 		.pipe(concat('styles.css'))
-		.on('error-concat', notify.onError())
+		.on('error', notify.onError())
+		.pipe(cleanCSS())
 		.pipe(gulp.dest('./dist/css'));
 });
 
 gulp.task('styles:libs', function() {
 	return gulp.src('src/libs/**/*.css')
 		.pipe(concat('vendors.css'))
+		.pipe(cleanCSS())
 		.pipe(gulp.dest('./dist/css'));
 });
+
 gulp.task('styles', gulp.parallel('styles:app', 'styles:libs'));
 
-
-gulp.task('html', function() {
-	return gulp.src('src/**/*.html')
-		.pipe(gulp.dest('./dist'));
-});
-
-gulp.task('assets', function() {
-	return gulp.src('src/assets/**/*.*')
-		.pipe(gulp.dest('./dist/assets'));
-});
 
 gulp.task('js:app', function() {
 	return gulp.src('src/app/**/*.js')
@@ -58,6 +52,16 @@ gulp.task('js:libs', function() {
 
 gulp.task('js', gulp.parallel('js:app', 'js:libs'));
 
+gulp.task('html', function() {
+	return gulp.src('src/**/*.html')
+		.pipe(gulp.dest('./dist'));
+});
+
+gulp.task('assets', function() {
+	return gulp.src('src/assets/**/*.*')
+		.pipe(gulp.dest('./dist/assets'));
+});
+
 gulp.task('clean', function() {
 	return del('./dist');
 });
@@ -65,9 +69,9 @@ gulp.task('clean', function() {
 gulp.task('build', gulp.series('clean', gulp.parallel('styles', 'assets', 'html', 'js')));
 
 gulp.task('watch', function() {
-	gulp.watch('src/**/*.scss', gulp.series('styles'));
+	gulp.watch('src/**/*.scss', gulp.series('styles:app'));
 	gulp.watch('src/**/*.html', gulp.series('html'));
-	gulp.watch('src/**/*.js', gulp.series('js'));
+	gulp.watch('src/app/**/*.js', gulp.series('js:app'));
 });
 
 gulp.task('serve', function() {
