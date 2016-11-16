@@ -1,0 +1,63 @@
+	<div class="tests">
+		<div class="container">
+			<div class="mdl-grid">
+
+				<div class="mdl-cell mdl-cell--3-col sideBar">
+					<div class="header">
+						<span>Меню</span>
+
+					</div>
+					<ul class="demo-list-item mdl-list">
+						<li class="mdl-list__item" ng-repeat="test in TestsCtrl.testsList track by $index" ng-click="TestsCtrl.setCurrentTest($index)" >
+							<span> {{test.name}}
+
+								<!--<span class="passed-test"></span>  ----ng-class -->
+							</span>
+						</li>
+					</ul>
+				</div>
+
+				<div class="mdl-cell mdl-cell--9-col go-in-test" ng-if="!TestsCtrl.isPassing">
+					<button ng-click="TestsCtrl.toPassing()">Пройти тест</button>
+					<button ng-click="TestsCtrl.clearResults()">Очистить результаты</button>
+					<div test-about>
+						<p>Тест: {{TestsCtrl.testsList[TestsCtrl.currentTest].name}} </p>
+						<p>Ваш результат: </p>
+						<p>Попыток пройти: </p>
+						<p>Процент правильных ответов: </p>
+					</div>
+				</div>
+
+				<div class="mdl-cell mdl-cell--9-col content" ng-show="TestsCtrl.isPassing">
+					<div class="mdl-grid">
+						<h3 class="mdl-cell mdl-cell--10-col">
+							{{TestsCtrl.testsList[TestsCtrl.currentTest].name}}
+							<button class="close-test" ng-click="TestsCtrl.toPassing()">Закрыть</button>
+						</h3>
+
+					</div>
+
+					<div class="question-item" ng-repeat="(indexQuest, question) in TestsCtrl.testsList[TestsCtrl.currentTest].questions track by $index">
+						<div class="question">
+							{{question.quest}}
+						</div>
+
+						<div class="answer">
+							<form action="" class="variants" >
+								<label ng-class="{correct: question.isCorrect, error: (!question.isCorrect && question.isAnswered)}" ng-repeat="(indexVar, variant) in question.variants track by $index">
+									<input type="radio" name="{{indexVar}}" value="{{variant}}" ng-click="TestsCtrl.check(indexVar, indexQuest)" ng-disabled="question.isAnswered">
+									<span>
+										{{variant}}
+									</span>
+									</input>
+								</label>
+							</form>
+						</div> <!-- END ANSWER -->
+
+					</div>
+				</div> <!-- END CONTENT -->
+
+			</div>
+
+		</div>
+	</div> <!-- END TESTS -->

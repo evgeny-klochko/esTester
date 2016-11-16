@@ -1,0 +1,65 @@
+
+<div class="container admin">
+	<div class="mdl-grid">
+		
+		<div class="mdl-cell mdl-cell--3-col sideBar">
+			<div class="header">
+				<h3>Меню</h3>
+			</div>
+			<div class="users">
+				<h4>Пользователи</h4>
+				<ul>
+					<li ng-repeat="user in AdminCtrl.users">
+						{{user.login}} 
+						<span  class="close" ng-click="AdminCtrl.deleteUser($index)">&times;</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="mdl-cell mdl-cell--9-col content">
+
+			<div class="control-buttons">
+				<button ui-sref="create">Новый тест</button>
+				<button ng-click="AdminCtrl.editTest(AdminCtrl.currentTest)">Редактировать тест</button>
+				<button ng-click="AdminCtrl.deleteTest(AdminCtrl.currentTest)">Удалить</button>
+			</div>
+
+			<h2>Все тесты</h2>
+			<div class="tests-list" ng-repeat="test in AdminCtrl.tests" 
+				ng-click="AdminCtrl.setCurrentTest($index)">
+				<div ng-class="{active : AdminCtrl.isCurrent($index)}">
+					<h4>{{test.name}}</h4>
+
+					<p>
+						Количество вопросов - {{test.questions.length}}
+						<span ng-show="!test.questions.qVisibility" ng-click="AdminCtrl.showQuestions()"> &#9658;</span>
+						<span ng-show="test.questions.qVisibility" ng-click="AdminCtrl.showQuestions()">&#9660;</span>
+					</p>
+
+					<ul>
+						<li ng-repeat="question in test.questions">
+							{{question.quest}}
+							<ul ng-if="test.questions.qVisibility">
+								<li ng-repeat="variant in question.variants">
+									{{variant}}
+								</li>
+							</ul>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+

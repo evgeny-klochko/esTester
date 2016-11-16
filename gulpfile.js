@@ -39,6 +39,7 @@ gulp.task('js:app', function() {
 	.pipe(concat('app.js'))
 	.pipe(ngAnnotate())
 	.pipe(uglify())
+	.on('error', notify.onError())
 	.pipe(gulp.dest('./dist/js'));
 
 });
@@ -47,6 +48,7 @@ gulp.task('js:libs', function() {
 	return gulp.src('src/libs/**/*.js')
 	.pipe(concat('vendors.js'))
 	.pipe(uglify())
+	.on('error', notify.onError())
 	.pipe(gulp.dest('./dist/js'));
 });
 
@@ -93,6 +95,11 @@ gulp.task('angular', function() {
 	.pipe(gulp.dest('./src/libs/angular'));
 });
 
+gulp.task('ngStorage', function() {
+	return gulp.src('node_modules/ngstorage/ngStorage.min.js')
+	.pipe(gulp.dest('./src/libs/ngStorage'));
+});
+
 gulp.task('router-ui', function() {
 	return gulp.src('node_modules/angular-ui-router/release/angular-ui-router.min.js')
 	.pipe(gulp.dest('./src/libs/angular-ui-router'));
@@ -103,4 +110,4 @@ gulp.task('design-lite', function() {
 	.pipe(gulp.dest('./src/libs/design-lite'));
 });
 
-gulp.task('build:libs', gulp.parallel('angular', 'router-ui', 'design-lite'));
+gulp.task('build:libs', gulp.parallel('angular', 'router-ui', 'design-lite', 'ngStorage'));
