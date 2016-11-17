@@ -1,18 +1,15 @@
 (function() {
 'use strict'
 
-	angular.module('esTester.modules.user', [
+	angular.module('esTester.modules.tests.testItem', [
 
 	])
 	.controller('UserController', UserController);
 
 	function UserController($localStorage, currentUser) {
 
-		console.log('begin');
+		this.ok = 'ok';
 		this.currentUser = currentUser.getCurrentUser();
-		console.log('end');
-		console.log('wea re in user');
-		console.log(this.currentUser);
 
 	}
 })();

@@ -2,62 +2,123 @@
 "use strict"
 
 angular.module('esTester.modules.tests', [
-
+	'esTester.modules.tests.testItem'
 	])
+	.config(function($stateProvider, $urlRouterProvider) {
+		$urlRouterProvider.otherwise('/');
 
+		$stateProvider
+			.state('test', {
+				url: '/tests/:testId',
+				templateUrl: 'app/modules/tests/testItem/testItem.html',
+				controller: 'TestItemController',
+				controllerAs: 'TestItemCtrl'
+			})
+		;
+	})
 	.controller('TestsController', TestsController);
 
-	function TestsController($localStorage, currentUser) {
+	function TestsController($localStorage, currentUser, $state, currentTest) {
 
 		var self = this;
 
 		self.testsList = {};
-		self.currentTest = 0;
-		self.currentUser = currentUser.getCurrentUsert;
-		self.isPassing = false;
-		self.user = currentUser.getCurrentUser();
 		self.testsList = $localStorage.allTests;
+		self.currentTest = 0;
+		self.currentUser = currentUser.getCurrentUser();
+		self.isPassed = false;
+
+		self.result = 0;
 
 
-		self.toPassing = function() {
-			self.isPassing = !self.isPassing;
+
+		//
+		//it depends on from which place test is taken (testsList or user.passedTests)
+		//
+		setCurrentTestOnCondition();
+
+		self.isCurrentTest = function(index) {
+
+			if(self.currentTest === index) {
+				return true;
+			}
+		}
+
+		self.getCurrentTestResult = function() {
+			return self.currentUser.testsPassed[self.currentTest].correctAnswers;
+		}
+
+		self.goToTest = function(testId) {
+			$state.go('test', {testId: self.currentTest});
 		}
 
 		self.clearResults = function() {
-			for(var testIndex in self.testsList) {
-				for(var questIndex in self.testsList[testIndex].questions) {
-					self.testsList[testIndex].questions[questIndex].isAnswered = false;
-					self.testsList[testIndex].questions[questIndex].isCorrect = false;
-					self.testsList[testIndex].correctAnswers = 0;
+			console.log('clearing');
+
+			if(self.currentUser.testsPassed.length) {
+				var is = isContainTest(self.testsList[self.currentTest]);
+				self.currentUser.testsPassed.splice(is.test, 1);
+				setCurrentTestOnCondition();
+				self.isPassed = false;
+			}
+
+		}
+
+		self.setCurrentTest = function(value) {
+
+			self.currentTest = value;
+			setCurrentTestOnCondition();
+
+		}
+
+
+		function setCurrentTestOnCondition() {
+			var is = isContainTest(self.testsList[self.currentTest]);
+
+			if(is) {
+
+				self.isPassed = true;
+				currentTest.setCurrentTest(self.currentUser.testsPassed[is.test]);
+
+				self.result = currentTest.getCurrentTest().correctAnswers + 
+					'/' + currentTest.getCurrentTest().questions.length;
+
+			} else {
+
+				self.isPassed = false;
+				currentTest.setCurrentTest(JSON.parse(JSON.stringify(self.testsList[self.currentTest])));
+				self.result = 'не определен';
+
+			}
+
+		}
+
+		function isPassed(user) {
+
+			if(user.testsPassed) {
+				for(var test in user.testsPassed){
+
+					if(self.testsList[self.currentTest].name === user.testsPassed[test].name) {
+						return true;
+					} else {
+						//TODO: for some features
+					}
 				}
 			}
 		}
 
+		function isContainTest(test) {
+			for(var testItem in self.currentUser.testsPassed) {
 
-		self.setCurrentTest = function(value) {
-			self.currentTest = value;
-			var user = currentUser.getCurrentUser();
-			user.testsPassed = 1;
-			currentUser.setCurrentUser(user);
-		}
-
-		self.getCurrentTestLength = function() {
-			return self.testsList[self.currentTest].questions.length;
-		}
-
-		self.check = function(value, quest){
-			var currentQuestion = self.testsList[self.currentTest].questions[quest];
-		currentQuestion.isAnswered = true;
-
-
-			if(value === (currentQuestion.answer - 1)) {
-				currentQuestion.isCorrect = true;
+				if(self.currentUser.testsPassed[testItem].name === test.name) {
+					return {
+						isContain: true,
+						test: testItem
+					}
+				}
 			}
-
-			//TODO: push test in user object
 		}
 
 	}
 
 })();
-

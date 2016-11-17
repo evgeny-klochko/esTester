@@ -9,15 +9,13 @@
 				<div class="user-info">
 					<h3>Персональная информация</h3>
 					<p>Логин {{UserCtrl.currentUser.login}}</p>
-					<p>email</p>
 				</div>
 			</div>
 
 			<div class="mdl-cell mdl-cell--6-col">
 				<div class="user-achievements">
 				 	<h3>Достижения</h3>
-				 	<p>Тестов пройдено </p>
-				 	<p>Уровень</p>
+				 	<p>Тестов пройдено {{UserCtrl.currentUser.testsPassed.length}}</p>
 
 				</div>
 			</div>

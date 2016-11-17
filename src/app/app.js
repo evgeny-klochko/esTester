@@ -11,7 +11,6 @@ angular.module('esTester', [
 .controller('MainController', MainController);
 
 	function MainController($localStorage, $state, currentUser) {
-
 		var self = this;
 
 		self.isAdmin = false;
@@ -32,42 +31,42 @@ angular.module('esTester', [
 		//TOFIX: function should be easier
 		this.setLogin = function(login) {
 
-		if(login === 'admin') {
-			self.isAdmin = true;
-		}
+			if(login === 'admin') {
+				self.isAdmin = true;
+			}
 
-		self.currentUser.login = login;
-		currentUser.setCurrentUser(self.currentUser);
+			self.currentUser.login = login;
+			currentUser.setCurrentUser(self.currentUser);
 
-		if( !(isUserExist(login)) ) {
-			console.log('new user');
-				$localStorage.users.push(self.currentUser);
-		}
-		else {
-			console.log('old user');
-			currentUser.setCurrentUser(getUserByLogin(login));
-		}
-		$state.go('tests');
+			if( !(isUserExist(login)) ) {
+				console.log('new user');
+					$localStorage.users.push(self.currentUser);
+			}
+			else {
+				console.log('old user');
+				currentUser.setCurrentUser(getUserByLogin(login));
+			}
+			$state.go('tests');
 
 		}
 
 		//
 		//NEED FIX DUPLICATES
 		function isUserExist(login) {
-		for(var user in $localStorage.users) {
-			if(login === $localStorage.users[user].login) {
-				console.log('exist');
-				return true;
+			for(var user in $localStorage.users) {
+				if(login === $localStorage.users[user].login) {
+					console.log('exist');
+					return true;
+				}
 			}
-		}
 		}
 		function getUserByLogin(login) {
-		for(var user in $localStorage.users) {
-			if(login === $localStorage.users[user].login) {
-				return $localStorage.users[user];
+			for(var user in $localStorage.users) {
+				if(login === $localStorage.users[user].login) {
+					return $localStorage.users[user];
+				}
 			}
-		}
-		return {login: login}
+			return {login: login}
 		}
 		//
 		//

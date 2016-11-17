@@ -31,6 +31,7 @@
 
 			<div class="new-question"
 				ng-repeat="($questIndex, question) in CreateCtrl.test.questions track by $index">
+				<span class="delete-button top" ng-click="CreateCtrl.deleteQuestion($questIndex)">&times;</span>
 
 				<input type="text" 
 					name="question" 
@@ -45,9 +46,9 @@
 						required
 						placeholder="Варианты ответов" 
 						ng-model="CreateCtrl.test.questions[$questIndex].variants[$varIndex]">
+					<span class="delete-button bottom" ng-click="CreateCtrl.deleteVariant($questIndex)">&times;</span>
+					<span class="plus" ng-click="CreateCtrl.addVariant($questIndex)">+</span>
 				</div>
-
-				<span class="plus" ng-click="CreateCtrl.addVariant($questIndex)">+</span>
 
 				<input type="text" 
 					name="answer_{{$questIndex}}" 
@@ -55,6 +56,7 @@
 					placeholder="Ответ" 
 					ng-model="CreateCtrl.test.questions[$questIndex].answer">
 				<span class="plus" ng-show="$last" ng-click="CreateCtrl.addQuestion()">+</span>
+
 			</div>
 
 			<input type="submit" name="submit-test" value="Создать">

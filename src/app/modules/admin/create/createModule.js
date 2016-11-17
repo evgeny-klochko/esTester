@@ -28,13 +28,22 @@
 
 		self.addVariant = function(quest) {
 			self.test.questions[quest].variants.push('');
-
+		}
+		self.deleteVariant = function(quest) {
+			var variants = self.test.questions[quest].variants;
+			variants.splice(variants.length - 1, 1);
 		}
 
 		self.addQuestion = function() {
 			self.test.questions.push({
 				variants: ['','']
 			});
+		}
+
+		self.deleteQuestion = function(quest) {
+			var questions = self.test.questions;
+			console.log(questions);
+			questions.splice(quest, 1);
 		}
 
 		self.setCurrentTest = function(currentTest) {

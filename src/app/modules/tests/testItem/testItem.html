@@ -1,0 +1,52 @@
+<div class="mdl-grid">
+	<div class="mdl-cell mdl-cell--3-col sideBar">
+
+		<div class="header">
+			<span>Меню</span>
+		</div>
+
+	</div> <!-- END SIDEBAR -->
+
+	<div class="mdl-cell mdl-cell--9-col content">
+
+ 		<div class="mdl-grid">
+ 			<h3 class="mdl-cell mdl-cell--10-col">
+ 				{{TestItemCtrl.testInProgress.name}}
+ 				<button class="close-test" ng-click="TestItemCtrl.closeTest()">
+ 					Закрыть
+ 				</button>
+ 			</h3>
+ 		</div>
+
+ 		<div class="variants">
+
+ 			<div class="question-item" ng-repeat="(indexQuest, question) in 	TestItemCtrl.testInProgress.questions">
+
+ 				<div class="question">
+ 					{{question.quest}}
+ 				</div>
+
+ 				<div class="answer">
+ 					<span ng-repeat="(indexVar, variant) in question.variants">
+
+ 						<input type="radio"
+ 							name="question-{{indexQuest}}"
+ 							value="{{indexVar}}"
+ 							ng-disabled="question.isAnswered"
+ 							ng-click="TestItemCtrl.checkAnswer(indexQuest, indexVar)"
+ 						>
+ 							{{variant}}
+ 						</input>
+
+ 					</span>
+ 				</div> <!-- END ANSWER -->
+
+ 			</div>
+ 			<button ng-click="TestItemCtrl.submitTest(TestsCtrl.answer)">
+ 				Отправить
+ 			</button>
+
+ 		</div>
+
+ 	</div> <!-- END CONTENT -->
+ </div>
