@@ -1,0 +1,48 @@
+
+<div class="container admin">
+	<div class="mdl-grid">
+
+		<div class="mdl-cell mdl-cell--3-col">
+			<side-bar></side-bar>
+		</div>
+
+		<div class="mdl-cell mdl-cell--9-col content">
+
+			<div class="control-buttons">
+				<button ui-sref="add">Новый тест</button>
+				<button ui-sref="edit({ id: $ctrl.currentTest.id })"> Редактировать тест</button>
+				<button ng-click="$ctrl.deleteTest()">Удалить</button>
+			</div>
+
+			<div class="tests-list">
+
+				<div>
+					<h3>{{$ctrl.currentTest.title}}</h3>
+					<p>
+						Количество вопросов - {{$ctrl.currentTest.questions.length}}
+						<span ng-show="$ctrl.isHided" ng-click="$ctrl.switcherShowHide()"> &#9658;</span>
+						<span ng-show="!$ctrl.isHided" ng-click="$ctrl.switcherShowHide()">&#9660;</span>
+
+					</p>
+
+					<ul ng-if="!$ctrl.isHided">
+						<li ng-repeat="question in $ctrl.currentTest.questions">
+							{{question.question}}
+						</li>
+					</ul>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+

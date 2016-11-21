@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" ng-app="esTester">
+<html lang="ru" >
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width">
@@ -8,19 +8,15 @@
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 
-<body ng-controller="MainController as ctrl">
+<body ng-app="esTester">
 
-	<a ui-sref="admin">admin</a>
 	<header class="pageTop mdl-color--primary">
 		<div class="container">
 			<a class="logo">Tester</a>
-
-			<div class="signing">
-				<span>Привет,  
-					<a ng-show="ctrl.isAdmin" ui-sref="admin">{{ctrl.currentUser.login}}</a>
-					<a ng-show="!ctrl.isAdmin" ui-sref="user">{{ctrl.currentUser.login}}</a>
-				</span>
-			</div>
+			<nav>
+				<a ui-sref="tests">тесты</a>
+				<a ui-sref="admin">Редактировать</a>
+			</nav>
 
 		</div>
 	</header>
@@ -29,13 +25,8 @@
 
 		<div class="container" >
 			<div class="greeting">
-				<h1>Ввдеите имя</h1>
-
-				<form ng-submit="ctrl.setLogin(login)">
-					<input type="text" name="login" required placeholder="Введите имя" ng-model="login">
-					<input type="submit" value="приступить">
-				</form>
-
+				<h1>Добро пожаловать</h1>
+				<button ui-sref="tests">Пройти тест</button>
 			</div>
 		</div>
 

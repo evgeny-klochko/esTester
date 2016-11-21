@@ -1,0 +1,15 @@
+<div class="sideBar">
+	<div class="header">
+		<h3>Меню</h3>
+	</div>
+		<h4>Тесты</h4>
+		<ul>
+			<li ng-repeat="test in $ctrl.testsList"
+				ng-click="$ctrl.setCurrent(test); $sbCtrl.setCurrent($index)"
+				ng-class="{active: $sbCtrl.isCurrent($index)}">
+				{{test.title}}
+				<span ng-class="{'passed-test' : test.isPassed}"></span>
+			</li>
+		</ul>
+	</div>
+</div>

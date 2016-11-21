@@ -2,9 +2,31 @@ $containerWidth: 90%;
 $containerBg: none;
 $headerHeight: 60px;
 $borderRd: 5px;
+$elemColor: #00f;
+$blockBg: #ddd;
+$accentColor: #f04;
 
 input:focus {
 	outline: none;
+}
+button {
+	padding: 5px 10px;
+	border: none;
+	border-radius: $borderRd;
+	background-color: $elemColor;
+	color: #fff;
+	font-size: 12px;
+	font-weight: 800;
+	text-transform: uppercase;
+}
+button:hover {
+	box-shadow: 1px 1px 3px 1px #000;
+}
+button:focus {
+	transform: scale(0.95);
+}
+button:disabled{
+	opacity: 0.2;
 }
 
 .container {
@@ -15,6 +37,7 @@ input:focus {
 
 .pageTop {
 	height: $headerHeight;
+	background-color: $elemColor;
 	a.logo {
 		float: left;
 		text-transform: uppercase;
@@ -22,48 +45,31 @@ input:focus {
 		font-size: 24px;
 		text-decoration: none;
 		font-weight: 900;
+		color: $accentColor;
 	}
-	.signing {
-		float: right;
+	nav {
+		margin-left: 200px;
 		line-height: $headerHeight;
-		color: #fff;
-		font-size: 20px;
-
-		a,input {
-			padding: 5px 10px;
-			margin: 5px;
+		a{
+			padding: 10px;
+			color: #fff;
 			text-decoration: none;
-			border: 1px solid #fff;
-			border-radius: $borderRd;
-			color: inherit;
+			text-transform: uppercase;
+			font-size: 14px;
+			font-weight: 600;
 		}
-		span{
+		a:hover {
+			color: $accentColor;
 
 		}
 	}
 }
-
 
 .greeting{
 	text-align: center;
 	margin-top: 20vh;
-	a{
-		padding: 5px 10px;
-		text-decoration: none;
-		border: 1px solid #000;
-		border-radius: $borderRd;
-	}
-	input{
-		padding: 5px 10px;
-		text-decoration: none;
-		border: 1px solid #000;
-		border-radius: $borderRd;
-	}
 }
-.sign-form {
-	width: 400px;
-	margin: 10vh auto;
-}
+
 .sideBar {
 	padding: 10px;
 	.header {
@@ -78,49 +84,39 @@ input:focus {
 
 		}
 		li.active {
-			border-right: 2px solid blue;
+			border-right: 2px solid $elemColor;
 		}
 	}
 }
-.tests {
 
-
-}
-
-	.content {
+.content {
+	padding: 10px;
+	.question-item {
+		background-color: $blockBg;
 		padding: 10px;
-
-		.question-item {
-			background-color: #eee;
-			padding: 10px;
+		margin: 5px 0;
+	}
+	.variants {
+		label {
+			display: block;
+		}
+		span {
+			display: block;
 			margin: 5px 0;
 		}
-
-		.variants {
-			label {
-				display: block;
-			}
-			input {
-				margin: 5px;
-			}
-
-			.error {
-				color: #f00;
-
-			}
-			.correct{
-				color: #090;
-			}
-
+		input {
+		}
+		.error {
+			color: #f00;
+		}
+		.correct{
+			color: #090;
 		}
 	}
+}
 .new-test {
 
-	width: 60%;
-	.test-name{
-
-	}
-
+	width: 70%;
 	input {
 		width: 92%;
 		padding: 5px 10px;
@@ -135,7 +131,7 @@ input:focus {
 		padding: 20px 0;
 		margin: 20px 0;
 		border: 1px solid #000;
-		background-color: #bebebe;
+		background-color: $blockBg;
 
 		.delete-button {
 			position: absolute;
@@ -170,28 +166,11 @@ input:focus {
 	}
 }
 
-.tests-list {
-	h4 {
-		display: block;
-
-	}
-
-	h4:hover {
-		cursor: pointer;
-		text-decoration: underline;
-	}
-	.active {
-		background-color: #ddd;
-
-	}
-
-}
-
 span.plus {
 	display: block;
 	float: right;
 	background-color: transparent;
-	color: #0d0;
+	color: #090;
 	border: none;
 	font-size: 30px;
 	font-weight: 900;
@@ -210,34 +189,12 @@ span.passed-test {
 	background-image: url('../assets/img/checked.jpg');
 	background-size: cover;
 	background-position: right center;
-	background-color: red;
 	width: 15px;
 	height: 15px;
 }
 
-.profile {
-	width: 100%;
-	background-color: #ddd;
-	margin-top: 20vh;
-	h2, h3 {
-		width: 100%;
-		text-align: center;
-	}
-}
-.admin {
-	.users {
-		.close {
-			float: right;
-		}
-		.close:hover {
-				transform: scale(1.4);
-				cursor: pointer;
-			}
-	}
-}
-
 .go-in-test {
-	background-color: #ddd;
+	background-color: $blockBg;
 	margin-top: 50px;
 	text-align: center;
 	button {
@@ -246,3 +203,15 @@ span.passed-test {
 	}
 
 }
+
+.mg-left {
+	margin-left: 15px;
+}
+
+.close {
+	float: right;
+}
+.close:hover {
+		transform: scale(1.4);
+		cursor: pointer;
+	}
