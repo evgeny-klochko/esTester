@@ -9,11 +9,17 @@
 				<div class="mdl-cell mdl-cell--9-col go-in-test">
 
 					<button ui-sref="test({ id: $ctrl.currentTest.id})" ng-disabled="$ctrl.currentTest.isPassed">Пройти тест</button>
-					<button ng-click="$ctrl.clearResults()">Очистить результаты</button>
+					<button ng-click="$ctrl.clearResults()" ng-disabled="!$ctrl.currentTest.isPassed">Очистить результаты</button>
 					<div class="test-about">
+
 						<p>Тест: {{$ctrl.currentTest.title}} </p>
 						<p>Количество вопросов: {{$ctrl.currentTest.questions.length}}</p>
-						<p ng-if="$ctrl.currentTest.isPassed">Ваш результат: {{$ctrl.currentTest.correctAnswers}}/{{$ctrl.currentTest.questions.length}}</p>
+						<p ng-if="$ctrl.currentTest.isPassed">
+							Ваш результат: {{$ctrl.currentTest.correctAnswers}}/{{$ctrl.currentTest.questions.length}} <br>
+							Дата сдачи: {{$ctrl.currentTest.date | date:'short'}}
+
+						</p>
+
 					</div>
 
 				</div>

@@ -2,14 +2,34 @@
 	<div class="header">
 		<h3>Меню</h3>
 	</div>
-		<h4>Тесты</h4>
-		<ul>
-			<li ng-repeat="test in $ctrl.testsList"
-				ng-click="$ctrl.setCurrent(test); $sbCtrl.setCurrent($index)"
-				ng-class="{active: $sbCtrl.isCurrent($index)}">
-				{{test.title}}
-				<span ng-class="{'passed-test' : test.isPassed}"></span>
-			</li>
-		</ul>
+	<div class="search">
+		<h5>Поиск</h5>
+		<label for="search">Название: </label>
+		<input type="text" 
+			name="search" 
+			placeholder="Название теста" 
+			ng-model="$sbCtrl.search.name"
+		>
+		<label for="isPassed">Непройденные: </label>
+		<input type="checkbox" 
+			name="isPassed" 
+			ng-model="$sbCtrl.search.notPassed"
+		>
+		<label for="isPassed">Длинные: </label>
+		<input type="checkbox" 
+			name="isPassed" 
+			ng-model="$sbCtrl.search.long"
+		>
+
+	</div>
+	<h5>Тесты</h5>
+	<ul>
+		<li ng-repeat="test in $ctrl.testsList | byName:$sbCtrl.search | byPassed:$sbCtrl.search | byLength:$sbCtrl.search"
+			ng-click="$ctrl.setCurrent(test); $sbCtrl.setCurrent($index)"
+			ng-class="{active: $sbCtrl.isCurrent($index)}">
+			{{test.title}}
+			<span ng-class="{'passed-test' : test.isPassed}"></span>
+		</li>
+	</ul>
 	</div>
 </div>

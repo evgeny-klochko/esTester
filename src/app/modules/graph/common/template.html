@@ -1,0 +1,98 @@
+
+<div class="container">
+	<div class="mdl-grid">
+
+		<div class="mdl-cell mdl-cell--3-col sideBar">
+			<h4>Диаграммы</h4>
+			<ul>
+				<li ui-sref="graph.byTime">Распределение тестрирования по времени</li>
+				<li ui-sref="graph.growing">Динамика роста</li>
+			</ul>
+		</div>
+
+		<div class="mdl-cell mdl-cell--9-col graph-container">
+			<ui-view>
+			</ui-view>
+		</div> <!-- END GRAPH-CONTAINER -->
+
+	</div>
+</div>
+
+
+<!-- END TAB-ITEM -->
+<!-- 					<div class="tab-item" ng-if=$ctrl.isActive(3)>
+	Всего попыток сдать тест: {{$ctrl.dates.length}}
+	<div class="graph-canvas" style="width:{{$ctrl.width}}px; height:{{$ctrl.height}}px;">
+	    <div class="y" style="width:{{$ctrl.height}}px;">{{$ctrl.yAxis}}</div>
+      						<div class="x">{{$ctrl.xAxis}}</div>
+
+		<svg version="1.1" 
+			xmlns="http://www.w3.org/2000/svg" 
+			style="width:{{$ctrl.width}}px; height:{{$ctrl.height}}px;"
+			stroke="red"
+		  	stroke-width="5px"
+		> 
+			<line ng-repeat="line in $ctrl.toGraph" 
+				x1="{{$index / $ctrl.toGraph.length * $ctrl.width }}"
+				y1="{{$ctrl.toGraph[$index - 1].value / $ctrl.max * $ctrl.height}}" 
+				x2="{{($index + 1) / $ctrl.toGraph.length * $ctrl.width}}" 
+				y2="{{line.value / $ctrl.max * $ctrl.height}}"
+			/>
+      						</svg>
+
+	</div>
+</div> END TAB-ITEM
+
+<div class="tab-item" ng-if="$ctrl.isActive(4)">
+	<h4>Ежедневный рост прохождения тестов:</h4>
+
+	<div class="graph-canvas" style="width:{{$ctrl.width}}px; height:{{$ctrl.height}}px;">
+	    <div class="y" style="width:{{$ctrl.height}}px;">Попыток: {{$ctrl.yAxis}}</div>
+      						<div class="x">Сегдня: {{$ctrl.xAxis | date:'mediumDate'}}</div>
+
+		<ul>
+			<svg version="1.1" 
+				xmlns="http://www.w3.org/2000/svg" 
+				style="width:{{$ctrl.width}}px; height:{{$ctrl.height}}px;"
+				
+			  	
+			> 
+				<line ng-repeat="line in $ctrl.growingGraph" 
+					x1="{{$index / $ctrl.growingGraph.length * $ctrl.width }}"
+					y1="{{$ctrl.growingGraph[$index-1].value / $ctrl.max * $ctrl.height}}" 
+					x2="{{($index + 1) / $ctrl.growingGraph.length * $ctrl.width}}" 
+					y2="{{line.value / $ctrl.max * $ctrl.height}}"
+				> 
+					<span>gg</span>
+				</line>
+
+
+      							</svg>
+		</ul>
+</div> END TAB-ITEM -->
+
+
+<!-- 
+
+				<div class="tab-item" ng-if=false>
+					Всего попыток сдать тест: {{$ctrl.dates.length}}
+					<div class="graph-canvas" style="width:{{$ctrl.width}}px; height:{{$ctrl.height}}px;">
+					    <div class="y" style="width:{{$ctrl.height}}px;">{{$ctrl.yAxis}}</div>
+      					<div class="x">{{$ctrl.xAxis}}</div>
+						<ul>
+							<li ng-repeat="dot in $ctrl.toGraph" class="dot" 
+								style="bottom:{{dot.value / $ctrl.max * $ctrl.height}}px; left:{{($index + 0.5) / $ctrl.toGraph.length * $ctrl.width}}px;"
+							>
+								<span>{{dot.day}} числа - {{dot.value}} тест сделан</span>
+							</li>
+						</ul>
+					</div>
+				</div> <!-- END TAB-ITEM 
+
+				<div class="tab-item" ng-if=false>
+					Всего попыток сдать тест: {{$ctrl.dates.length}}
+					<gistogram data={{$ctrl.toGraph}} axis-x="date" axis-y="passed" ng-height="400" ng-width="600">
+					</gistogram>
+				</div>
+
+ -->

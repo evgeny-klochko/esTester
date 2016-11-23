@@ -6,7 +6,7 @@
 	])
 	.controller('TestCtrl', TestCtrl);
 
-	function TestCtrl(Test, $stateParams, $state, Questions) {
+	function TestCtrl(Test, $stateParams, $state, Questions, DatePassing) {
 		var vm = this;
 
 		var id = $stateParams.id;
@@ -46,6 +46,8 @@
 			if(answers == vm.testProgress.questions.length) {
 				vm.testProgress.isPassed = true;
 				vm.testProgress.correctAnswers = correctAnswers;
+				vm.testProgress.date = new Date();
+				DatePassing.add(new Date());
 				Test.replace(vm.testProgress, Test.getIndex(id));
 				$state.go('tests');
 			} else {

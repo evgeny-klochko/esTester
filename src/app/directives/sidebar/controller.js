@@ -9,6 +9,13 @@
 		var vm = this;
 		vm.currentTest = 0;
 
+		vm.search = {
+			name: '',
+			notPassed: false,
+			long: false
+		};
+
+
 		vm.isCurrent = isCurrent;
 		vm.setCurrent = setCurrent;
 
@@ -21,6 +28,10 @@
 		function setCurrent(index) {
 			vm.currentTest = index;
 		}
+
+/*		function addParam() {
+			vm.search.notPassed = true;
+		}*/
 
 	}
 

@@ -1,0 +1,14 @@
+<div class="graph-canvas" style="width:{{width}}px; height:{{height}}px;">
+    <div class="y" style="width:{{height}}px;">{{axisY + ': ' + max}}</div>
+   	<div class="x">{{axisX}}</div>
+
+   	<ul>
+		<li ng-repeat="bar in data  track by $index" class="bar"
+			style="height:{{bar.value / max * height}}px; width:{{width / length - 5}}px; left:{{$index / length * width}}px;"
+		>
+		<span>{{bar.timeItem}} - {{bar.value}} попыток</span>
+		</li>
+	</ul>
+
+
+</div>
