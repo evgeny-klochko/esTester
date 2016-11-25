@@ -1,28 +1,24 @@
-(function() {
-	'use strict'
+(function () {
+  'use strict';
 
-	angular
-		.module('esTester.modules')
-		.factory('Questions', Questions);
+  angular
+    .module('esTester.modules')
+    .factory('Questions', Questions);
 
-	function Questions(Test) {
-		var testsList = Test.list();
+  function Questions(Test) {
+    var service = {
+      getAnswer: getAnswer
+    };
 
-		var service = {
-			getAnswer: getAnswer
-		};
+    return service;
 
-		return service;
+    function getAnswer(test, question) {
+      var testCurrent = getTest(test);
+      return testCurrent.questions[question].answer;
+    }
 
-		function getAnswer(test, question) {
-			var test = getTest(test);
-			return test.questions[question].answer;
-		}
-
-		function getTest(test) {
-			return Test.find(test.id);
-		}
-
-	}
-
-})();
+    function getTest(test) {
+      return Test.find(test.id);
+    }
+  }
+}());

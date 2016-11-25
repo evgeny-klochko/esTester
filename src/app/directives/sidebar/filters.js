@@ -1,104 +1,68 @@
-(function() {
-	'use strict'
+(function () {
+  'use strict';
 
-	angular
-		.module('esTester.directives')
-		.filter('byName', byName)
-		.filter('byPassed', byPassed)
-		.filter('byLength', byLength);
+  angular
+    .module('esTester.directives')
+    .filter('byName', byName)
+    .filter('byPassed', byPassed)
+    .filter('byLength', byLength);
 
-	function byName(){
-    	return function (items, search) {
-    		var filtered = [];
+  function byName() {
+    return function (items, search) {
+      var filtered = [];
+      var item;
+      var i;
 
-    		for (var i = 0; i < items.length; i++) {
-    		  	var item = items[i];
-    		  	if(search){
-     		  		if (search.name == item.title.substring(0, search.name.length)) {
-    		  			filtered.push(item);
-    		  		}
-    		  	}
-    		}
-    		return filtered;
-  		};
-    }
+      for (i = 0; i < items.length; i += 1) {
+        item = items[i];
+        if (search) {
+          if (search.name === item.title.substring(0, search.name.length)) {
+            filtered.push(item);
+          }
+        }
+      }
+      return filtered;
+    };
+  }
 
-    function byPassed() {
-    	return function(items, search) {
-    		var filtered = [];
+  function byPassed() {
+    return function (items, search) {
+      var filtered = [];
+      var item;
+      var i;
 
-    		for (var i = 0; i < items.length; i++) {
-    		  	var item = items[i];
+      for (i = 0; i < items.length; i += 1) {
+        item = items[i];
+        if (search.notPassed) {
+          if (search.notPassed !== item.isPassed) {
+            filtered.push(item);
+          }
+        } else {
+          filtered.push(item);
+        }
+      }
+      return filtered;
+    };
+  }
 
-    		  	if(search.notPassed){
-    		  		if(search.notPassed !== item.isPassed) {
-    		  			filtered.push(item);
-    		  		}
-    		  	}
-    		  	else {
-    		  		filtered.push(item);
-    		  	}
-    		}
+  function byLength() {
+    return function (items, search) {
+      var filtered = [];
+      var item;
+      var i;
 
-    		return filtered;
-    	}
-    }
+      for (i = 0; i < items.length; i += 1) {
+        item = items[i];
 
-    function byLength() {
-    	return function(items, search) {
-    		var filtered = [];
-
-    		for (var i = 0; i < items.length; i++) {
-    		  	var item = items[i];
-
-    		  	if(search.long){
-    		  		if(item.questions.length > 1) {
-    		  			filtered.push(item);
-    		  		}
-    		  	}
-    		  	else {
-    		  		filtered.push(item);
-    		  	}
-    		}
-
-    		return filtered;
-    	}
-    }
-
-})();
-
-
-
-/*
-
-	function byName(){
-    	return function (items, search) {
-    		var filtered = [];
-
-    		for (var i = 0; i < items.length; i++) {
-    		  	var item = items[i];
-    		  	if(search){
-     		  		if (search.name == item.title.substring(0, search.name.length)) {
-
-    		  			if(search.notPassed){
-    		  				if(search.notPassed !== item.isPassed) {
-    		  					filtered.push(item);
-    		  				}
-
-    		  			} if(search.long) {
-    		  				if(item.questions.length > 1) {
-    		  					filtered.push(item);
-    		  				}
-    		  			} else {
-    		  				filtered.push(item);
-    		  			}
-
-    		  		}
-    		  	}
-
-    		}
-    		return filtered;
-  		};
-    }
-
-*/
+        if (search.long) {
+          if (item.questions.length > 1) {
+            filtered.push(item);
+          }
+        } else {
+          filtered.push(item);
+        }
+      }
+      return filtered;
+    };
+  }
+}());

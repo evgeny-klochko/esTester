@@ -1,9 +1,9 @@
-(function() {
-	'use strict'
+(function () {
+  'use strict';
 
-	angular
-		.module('esTester.modules', [
-			'esTester.modules.test',
-			'esTester.modules.graph'
-		]);
-})();
+  angular
+    .module('esTester.modules', [
+      'esTester.modules.test',
+      'esTester.modules.graph'
+    ]);
+}());

@@ -1,7 +1,6 @@
-(function() {
-	'use strict'
+(function () {
+  'use strict';
 
-	angular
-		.module('esTester.modules.test.management', []);
-
-})();
+  angular
+    .module('esTester.modules.test.management', []);
+}());

@@ -1,47 +1,42 @@
-(function() {
-	'use strict'
+(function () {
+  'use strict';
 
-	angular
-		.module('esTester.modules')
-		.factory('CurrentTest', CurrentTest);
+  angular
+    .module('esTester.modules')
+    .factory('CurrentTest', CurrentTest);
 
-	function CurrentTest(Test) {
-		var vm = this;
-		console.log('again here');
+  function CurrentTest(Test) {
+    var currentTest = Test.list()[0];
 
-		var currentTest = Test.list()[0];
+    var service = {
+      get: get,
+      set: set,
+      reset: reset,
+      isCurrent: isCurrent
+    };
 
-		var service = {
-			get: get,
-			set: set,
-			reset: reset,
-			isCurrent: isCurrent
-		};
+    return service;
 
-		return service;
+    function get() {
+      return currentTest;
+    }
 
-		function get() {
-			return currentTest;
-		}
+    function set(test) {
+      currentTest = test;
+    }
 
-		function set(test) {
-			currentTest = test;
-		}
+    function reset() {
+      currentTest.isPassed = false;
+      currentTest.correctAnswers = 0;
+      currentTest.questions.forEach(function (item) {
+        item.isAnswered = false;
+        item.isCorrect = false;
+      });
+    }
 
-		function reset() {
-			console.log('reseting');
-			currentTest.isPassed = false;
-			currentTest.correctAnswers = 0;
-			currentTest.questions.forEach(function(item, index, test) {
-				item.isAnswered = false;
-				item.isCorrect = false;
-			});
-		}
-
-		function isCurrent(test) {
-			return test.id == currentTest.id ? true : false;
-		}
-
-	}
-
-})();
+    // changed == to ===
+    function isCurrent(test) {
+      return test.id === currentTest.id;
+    }
+  }
+}());

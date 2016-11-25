@@ -1,61 +1,61 @@
-(function() {
-	'use strict';
-	angular
-		.module('esTester.modules.test.management')
-		.controller('AddCtrl', AddCtrl);
+(function () {
+  'use strict';
 
-	function AddCtrl(Test, $state) {
-		var vm = this;
+  angular
+    .module('esTester.modules.test.management')
+    .controller('AddCtrl', AddCtrl);
 
-		vm.testsList = Test.list();
+  function AddCtrl(Test, $state) {
+    var vm = this;
 
-		vm.test = {
-			title: '',
-			questions: [
-				{
-					question: '',
-					variants: ['', ''],
-					answer: ''
-				}
-			]
-		};
+    vm.testsList = Test.list();
 
-		vm.create = create;
-		vm.addQuestion = addQuestion;
-		vm.deleteQuestion = deleteQuestion;
-		vm.addVariant = addVariant;
-		vm.deleteVariant = deleteVariant;
+    vm.test = {
+      title: '',
+      questions: [
+        {
+          question: '',
+          variants: ['', ''],
+          answer: ''
+        }
+      ]
+    };
 
-		function reset() {
-			vm.test = {};
-			vm.test.questions = [{}];
-			vm.test.questions[0].variants = ['',''];
-		}
+    vm.create = create;
+    vm.addQuestion = addQuestion;
+    vm.deleteQuestion = deleteQuestion;
+    vm.addVariant = addVariant;
+    vm.deleteVariant = deleteVariant;
 
-		function create(test) {
-			Test.add(vm.test);
-			reset();
-			$state.go('admin');
-		}
+    function reset() {
+      vm.test = {};
+      vm.test.questions = [{}];
+      vm.test.questions[0].variants = ['', ''];
+    }
 
-		function addQuestion() {
-			vm.test.questions.push({
-				variants: ['','']
-			});
-		}
+    function create() {
+      Test.add(vm.test);
+      reset();
+      $state.go('admin');
+    }
 
-		function deleteQuestion(quest) {
-			vm.test.questions.splice(quest, 1);
-		}
+    function addQuestion() {
+      vm.test.questions.push({
+        variants: ['', '']
+      });
+    }
 
-		function addVariant(quest) {
-			vm.test.questions[quest].variants.push('');
-		}
+    function deleteQuestion(quest) {
+      vm.test.questions.splice(quest, 1);
+    }
 
-		function deleteVariant(quest) {
-			var variants = vm.test.questions[quest].variants;
-			variants.splice(variants.length - 1, 1);
-		}
+    function addVariant(quest) {
+      vm.test.questions[quest].variants.push('');
+    }
 
-	}
-})();
+    function deleteVariant(quest) {
+      var variants = vm.test.questions[quest].variants;
+      variants.splice(variants.length - 1, 1);
+    }
+  }
+}());
