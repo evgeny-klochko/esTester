@@ -2,11 +2,16 @@
     <div class="y" style="width:{{height}}px;">{{axisY + ': ' + max}}</div>
    	<div class="x">{{axisX}}</div>
 
-   	<ul>
-		<li ng-repeat="bar in data  track by $index" class="bar"
-			style="height:{{bar.value / max * height}}px; width:{{width / length - 5}}px; left:{{$index / length * width}}px;"
+   	<ul id="bar">
+		<li ng-repeat="bar in data  track by $index" class="bar" ng-hide=$odd
+			style="height:{{bar.value / max * height}}px; width:{{width / length - 5}}px; left:{{$index / length * width}}px; background: {{color[0]}}"
 		>
-		<span>{{bar.timeItem}} - {{bar.value}} попыток</span>
+			<span style="background: {{color[2]}}">{{bar.timeItem}} - {{bar.value}} попыток</span>
+		</li>
+		<li ng-repeat="bar in data  track by $index" class="bar" ng-hide=$even
+			style="height:{{bar.value / max * height}}px; width:{{width / length - 5}}px; left:{{$index / length * width}}px; background: {{color[1]}}"
+		>
+			<span style="background: {{color[2]}}">{{bar.timeItem}} - {{bar.value}} попыток</span>
 		</li>
 	</ul>
 

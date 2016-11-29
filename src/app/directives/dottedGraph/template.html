@@ -1,12 +1,13 @@
 <div class="graph-canvas" style="width:{{width}}px; height:{{height}}px;">
-    <div class="y" style="width:{{height}}px;">{{axisY}} {{max}}</div>
-    <div class="x">{{$ctrl.AxisX}}</div>
-	<ul>
-		<li ng-repeat="dot in $ctrl.toGraphDotted" class="dot" 
-			style="bottom:{{dot.value / (max + 0.5) * height}}px;
-			left:{{($index + 0.5) / $ctrl.toGraphDotted.length * width}}px;"
-		>
-			<span>{{dot.timeItem}} числа - {{dot.value}} тест сделан</span>
-		</li>
-	</ul>
+  <div class="y" style="width:{{height}}px;">{{axisY}} {{max}}</div>
+  <div class="x">{{$ctrl.AxisX}}</div>
+  <ul>
+    <li ng-repeat="dot in $ctrl.toGraphDotted" class="dot"
+      style="bottom:{{dot.value / (max + 0.5) * height}}px;
+      left:{{($index + 0.5) / $ctrl.toGraphDotted.length * width}}px; background: {{color[0]}};"
+    >
+    <span style="background: {{color[1]}}">{{dot.timeItem}} - {{dot.value}} попыток</span>
+    </li>
+
+  </ul>
 </div>

@@ -14,10 +14,15 @@
     vm.testsList = Test.list();
     vm.currentTest = Test.find(id);
     vm.testProgress = angular.copy(vm.currentTest);
+    vm.modalShown = false;
 
     vm.closeTest = closeTest;
     vm.checkAnswer = checkAnswer;
     vm.submitTest = submitTest;
+
+    vm.toggleModal = function () {
+      vm.modalShown = !vm.modalShown;
+    };
 
     function closeTest() {
       $state.go('tests');
@@ -48,7 +53,7 @@
         Test.replace(vm.testProgress, Test.getIndex(id));
         $state.go('tests');
       } else {
-        alert('Нужно ответить на все вопросы');
+        vm.toggleModal();
       }
     }
   }

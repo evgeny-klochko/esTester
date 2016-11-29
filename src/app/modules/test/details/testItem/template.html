@@ -48,7 +48,12 @@
  					Отправить
  				</button>
  			</form>
-
+      			<modal-dialog show="$ctrl.modalShown" width="500px" height="30%" class="reset-settings">
+      			  <h4>Нужно ответить на все вопросы</h4>
+      			  <div class="reset-buttons">
+      			    <button class="btn-yes" ng-click="$ctrl.toggleModal()">Ок</button>
+      			  </div>
+      			</modal-dialog>
  		</div>
 
  	</div> <!-- END CONTENT -->

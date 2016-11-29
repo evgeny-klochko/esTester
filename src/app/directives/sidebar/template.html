@@ -20,10 +20,9 @@
 			name="isPassed" 
 			ng-model="$sbCtrl.search.long"
 		>
-
 	</div>
 	<h5>Тесты</h5>
-	<ul>
+	<ul class="test-list">
 		<li ng-repeat="test in $ctrl.testsList | byName:$sbCtrl.search | byPassed:$sbCtrl.search | byLength:$sbCtrl.search"
 			ng-click="$ctrl.setCurrent(test); $sbCtrl.setCurrent($index)"
 			ng-class="{active: $sbCtrl.isCurrent($index)}">

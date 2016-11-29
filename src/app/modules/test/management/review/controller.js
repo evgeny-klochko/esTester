@@ -18,6 +18,12 @@
           controller: 'EditCtrl',
           controllerAs: '$ctrl'
         })
+        .state('color', {
+          url: '/admin/color-settings',
+          templateUrl: 'app/modules/graph/graph-settings/template.html',
+          controller: 'GraphSettingsCtrl',
+          controllerAs: '$ctrl'
+        })
       ;
     })
     .controller('AdminCtrl', AdminCtrl);

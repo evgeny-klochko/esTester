@@ -48,6 +48,7 @@
   function byLength() {
     return function (items, search) {
       var filtered = [];
+      var lengthBorder = 2;
       var item;
       var i;
 
@@ -55,7 +56,7 @@
         item = items[i];
 
         if (search.long) {
-          if (item.questions.length > 1) {
+          if (item.questions.length > lengthBorder) {
             filtered.push(item);
           }
         } else {
