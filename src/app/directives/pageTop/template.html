@@ -1,0 +1,21 @@
+<header class="pageTop">
+  <div class="container">
+    <a class="logo">Tester</a>
+    <nav>
+      <a ui-sref="tests">тесты</a>
+      <a ui-sref="graph.byTime">Статистика</a>
+
+      <div class="user dropdown" ng-if="$ctrl.isAuth()">
+        <div class="dropdown-content">
+          <ul>
+            <li ng-click="$ctrl.signout()">Выйти</li>
+            <li>Профиль</li>
+            <li ng-click="$ctrl.save()">Сохранить</li>
+            <li ng-click="$ctrl.load()">Загрузить</li>
+          </ul>
+        </div>
+      </div>
+      <a class="settings" ui-sref="admin"></a>
+    </nav>
+  </div>
+</header>

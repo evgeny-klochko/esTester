@@ -1,0 +1,35 @@
+.content {
+  padding: 10px;
+  .question-item {
+    background-color: $blockBg;
+    padding: 10px;
+    margin: 5px 0;
+  }
+  .variants {
+    label {
+      display: block;
+    }
+    span {
+      display: block;
+      margin: 5px 0;
+    }
+    input {
+    }
+    .error {
+      color: #DF131D;
+    }
+    .correct{
+      color: #2D882D;
+    }
+  }
+}
+
+.go-in-test {
+  background-color: $blockBg;
+  margin-top: 50px;
+  text-align: center;
+  max-height: 250px;
+  button {
+    margin: 40px 0;
+  }
+}

@@ -1,0 +1,21 @@
+.diagram {
+  display: table-cell;
+  background-color: #eee;
+  margin: 20px auto;
+  padding: 20px;
+  vertical-align: middle;
+  canvas {
+    float: left;
+    border-radius: 400px;
+  }
+  #piechart-legend {
+    .legend-color {
+      box-sizing: border-box;
+      width: 20px;
+      height: 20px;
+      margin: 2px 10px;
+      display: inline-block;
+      border-radius: 20px;
+    }
+  }
+}

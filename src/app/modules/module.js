@@ -4,6 +4,7 @@
   angular
     .module('esTester.modules', [
       'esTester.modules.test',
-      'esTester.modules.graph'
+      'esTester.modules.graph',
+      'esTester.modules.auth'
     ]);
 }());

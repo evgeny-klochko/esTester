@@ -1,61 +1,61 @@
 <div class="mdl-grid">
 
-	<div class="mdl-cell mdl-cell--3-col">
-		<side-bar></side-bar>
-	</div>
+  <div class="mdl-cell mdl-cell--3-col">
+    <side-bar></side-bar>
+  </div>
 
-	<div class="mdl-cell mdl-cell--9-col content">
+  <div class="mdl-cell mdl-cell--9-col content">
 
- 		<div class="mdl-grid">
- 			<h3 class="mdl-cell mdl-cell--10-col">
- 				Тест - {{$ctrl.currentTest.title}}
- 				<button class="close-test" ng-click="$ctrl.closeTest()">
- 					Закрыть
- 				</button>
- 			</h3>
- 		</div>
+    <div class="mdl-grid">
+      <h3 class="mdl-cell mdl-cell--10-col">
+        Тест - {{$ctrl.currentTest.title}}
+        <button class="close-test" ng-click="$ctrl.closeTest()">
+          Закрыть
+        </button>
+      </h3>
+    </div>
 
- 		<div class="variants">
-			<form ng-submit="$ctrl.submitTest()">
- 				<div class="question-item" ng-repeat="(indexQuest, question) in 	$ctrl.testProgress.questions">
+    <div class="variants">
+      <form ng-submit="$ctrl.submitTest()">
+        <div class="question-item" ng-repeat="(indexQuest, question) in   $ctrl.testProgress.questions">
 
- 					<div class="question">
- 						Вопрос: {{indexQuest + 1}}
- 						<div class="mg-left">{{question.question}}</div>
- 					</div>
+          <div class="question">
+            Вопрос: {{indexQuest + 1}}
+            <div class="mg-left">{{question.question}}</div>
+          </div>
 
- 					<div class="answer" ng-class="{
- 					correct: $ctrl.testProgress.questions[indexQuest].isCorrect && $ctrl.testProgress.questions[indexQuest].isAnswered,
- 					error: !$ctrl.testProgress.questions[indexQuest].isCorrect && $ctrl.testProgress.questions[indexQuest].isAnswered}">
+          <div class="answer" ng-class="{
+          correct: $ctrl.testProgress.questions[indexQuest].isCorrect && $ctrl.testProgress.questions[indexQuest].isAnswered,
+          error: !$ctrl.testProgress.questions[indexQuest].isCorrect && $ctrl.testProgress.questions[indexQuest].isAnswered}">
 
- 						<div>Варианты:</div>
- 						<span class="mg-left" ng-repeat="(indexVar, variant) in question.variants">
+            <div>Варианты:</div>
+            <span class="mg-left" ng-repeat="(indexVar, variant) in question.variants">
 
- 							<input type="radio"
- 								name="question-{{indexQuest}}"
- 								value="{{indexVar}}"
- 								ng-disabled="question.isAnswered"
- 								ng-click="$ctrl.checkAnswer(indexQuest, indexVar)"
- 							>
- 								{{variant}}
- 							</input>
+              <input type="radio"
+                name="question-{{indexQuest}}"
+                value="{{indexVar}}"
+                ng-disabled="question.isAnswered"
+                ng-click="$ctrl.checkAnswer(indexQuest, indexVar)"
+              >
+                {{variant}}
+              </input>
 
- 						</span>
- 					</div> <!-- END ANSWER -->
+            </span>
+          </div> <!-- END ANSWER -->
 
- 				</div>
- 				<button >
- 					Отправить
- 				</button>
- 			</form>
-      			<modal-dialog show="$ctrl.modalShown" width="500px" height="30%" class="reset-settings">
-      			  <h4>Нужно ответить на все вопросы</h4>
-      			  <div class="reset-buttons">
-      			    <button class="btn-yes" ng-click="$ctrl.toggleModal()">Ок</button>
-      			  </div>
-      			</modal-dialog>
- 		</div>
+        </div>
+        <button >
+          Отправить
+        </button>
+      </form>
+            <modal-dialog show="$ctrl.modalShown" width="500px" height="30%" class="reset-settings">
+              <h4>Нужно ответить на все вопросы</h4>
+              <div class="reset-buttons">
+                <button class="btn-yes" ng-click="$ctrl.toggleModal()">Ок</button>
+              </div>
+            </modal-dialog>
+    </div>
 
- 	</div> <!-- END CONTENT -->
+  </div> <!-- END CONTENT -->
  </div>
  

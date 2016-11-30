@@ -1,0 +1,433 @@
+{
+  "allTests": [
+    {
+      "questions": [
+        {
+          "variants": [
+            "вар1",
+            "вар2"
+          ],
+          "quest": "вопрос 1",
+          "answer": "1",
+          "isAnswered": false,
+          "isCorrect": false
+        },
+        {
+          "variants": [
+            "вари1",
+            "вари2",
+            "вари3"
+          ],
+          "quest": "вопрос 2",
+          "answer": "3",
+          "isAnswered": false,
+          "isCorrect": false
+        },
+        {
+          "variants": [
+            "вариа1",
+            "вариа2"
+          ],
+          "quest": "вопрос 3",
+          "answer": "1",
+          "isAnswered": false,
+          "isCorrect": false
+        }
+      ],
+      "name": "Тест 1",
+      "correctAnswers": 0
+    },
+    {
+      "questions": [
+        {
+          "variants": [
+            "варррррррррррр1",
+            "вавыа2"
+          ],
+          "quest": "вопрсо 1",
+          "answer": "2",
+          "isAnswered": false,
+          "isCorrect": false
+        }
+      ],
+      "name": "Тест 2",
+      "correctAnswers": 0
+    }
+  ],
+  "colors": {
+    "gistogram": [
+      "#ff0000",
+      "#0000ff",
+      "#00ff00"
+    ],
+    "dotted": [
+      "#ff0000",
+      "#00ff00"
+    ],
+    "diagram": [
+      "#ff0000",
+      "#0000ff",
+      "#eb42f4",
+      "#f4ce42",
+      "#7f7860",
+      "#6a915e",
+      "#237c08",
+      "#7c084e"
+    ],
+    "lined": [
+      "#ff0000",
+      "#00ff00"
+    ]
+  },
+  "date": [
+    "2016-11-22T10:35:12.101Z",
+    "2016-11-22T10:35:36.097Z",
+    "2016-11-22T10:37:52.352Z",
+    "2016-11-22T10:52:52.887Z",
+    "2016-11-22T10:53:00.989Z",
+    "2016-11-22T10:53:07.756Z",
+    "2016-11-22T11:41:25.281Z",
+    "2016-11-22T11:41:30.903Z",
+    "2016-11-22T12:14:02.402Z",
+    "2016-11-22T13:07:12.512Z",
+    "2016-11-22T13:07:15.886Z",
+    "2016-11-22T13:07:18.786Z",
+    "2016-11-22T14:01:31.237Z",
+    "2016-11-23T06:30:20.205Z",
+    "2016-11-23T10:28:11.170Z",
+    "2016-11-23T13:06:50.612Z",
+    "2016-11-23T15:13:45.005Z",
+    "2016-11-23T15:13:48.631Z",
+    "2016-11-24T06:12:42.459Z",
+    "2016-11-24T10:29:48.794Z",
+    "2016-11-24T10:29:59.344Z",
+    "2016-11-24T13:35:03.698Z",
+    "2016-11-24T13:35:07.929Z",
+    "2016-11-25T07:04:12.821Z",
+    "2016-11-25T08:18:24.756Z",
+    "2016-11-25T12:17:23.157Z",
+    "2016-11-25T12:24:06.979Z",
+    "2016-11-25T12:24:25.886Z",
+    "2016-11-25T12:27:17.132Z",
+    "2016-11-28T06:12:50.519Z",
+    "2016-11-28T12:26:20.834Z",
+    "2016-11-28T12:26:26.309Z",
+    "2016-11-28T12:26:40.292Z",
+    "2016-11-28T12:48:51.949Z",
+    "2016-11-29T08:56:56.028Z",
+    "2016-11-29T08:58:10.392Z",
+    "2016-11-29T08:58:33.315Z",
+    "2016-11-29T08:59:50.132Z",
+    "2016-11-29T09:00:17.518Z",
+    "2016-11-29T14:19:33.706Z",
+    "2016-11-30T12:09:15.447Z"
+  ],
+  "login": "ff",
+  "tests": [
+    {
+      "title": "33dh",
+      "questions": [
+        {
+          "question": "3212",
+          "variants": [
+            "33",
+            "44"
+          ],
+          "answer": "2",
+          "isAnswered": false,
+          "isCorrect": false
+        },
+        {
+          "variants": [
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "question": "dd",
+          "answer": "1",
+          "isAnswered": false,
+          "isCorrect": false
+        }
+      ],
+      "id": 51,
+      "isPassed": false,
+      "correctAnswers": 0,
+      "date": "2016-11-30T12:09:15.447Z"
+    },
+    {
+      "title": "test2",
+      "questions": [
+        {
+          "question": "q1",
+          "variants": [
+            "1",
+            "2"
+          ],
+          "answer": "1",
+          "isAnswered": true,
+          "isCorrect": true
+        },
+        {
+          "variants": [
+            "22",
+            "33",
+            "44"
+          ],
+          "question": "q2",
+          "answer": "2",
+          "isAnswered": true,
+          "isCorrect": false
+        }
+      ],
+      "id": 52,
+      "isPassed": true,
+      "correctAnswers": 1,
+      "date": "2016-11-28T12:26:20.834Z"
+    },
+    {
+      "title": "33sds",
+      "questions": [
+        {
+          "question": "21",
+          "variants": [
+            "2",
+            "1"
+          ],
+          "answer": "1",
+          "isAnswered": true,
+          "isCorrect": true
+        }
+      ],
+      "id": 53,
+      "isPassed": true,
+      "correctAnswers": 1,
+      "date": "2016-11-28T12:48:51.949Z"
+    },
+    {
+      "title": "тест1",
+      "questions": [
+        {
+          "variants": [
+            "1",
+            "2",
+            "3"
+          ],
+          "question": "22",
+          "answer": "1",
+          "isAnswered": true,
+          "isCorrect": true
+        },
+        {
+          "variants": [
+            "11",
+            "22"
+          ],
+          "question": "33",
+          "answer": "2",
+          "isAnswered": true,
+          "isCorrect": false
+        },
+        {
+          "variants": [
+            "111",
+            "222",
+            "333"
+          ],
+          "question": "44",
+          "answer": "3",
+          "isAnswered": true,
+          "isCorrect": false
+        }
+      ],
+      "id": 54,
+      "isPassed": true,
+      "correctAnswers": 1,
+      "date": "2016-11-29T14:19:33.706Z"
+    },
+    {
+      "title": "тест11",
+      "questions": [
+        {
+          "question": "вв1",
+          "variants": [
+            "1",
+            "2"
+          ],
+          "answer": "2",
+          "isAnswered": false,
+          "isCorrect": false
+        }
+      ],
+      "id": 55,
+      "isPassed": false,
+      "correctAnswers": 0,
+      "date": "2016-11-25T12:24:06.979Z"
+    },
+    {
+      "title": "тест44",
+      "questions": [
+        {
+          "question": "а?",
+          "variants": [
+            "да",
+            "нет",
+            "наверное"
+          ],
+          "answer": "2",
+          "isAnswered": false,
+          "isCorrect": false
+        },
+        {
+          "variants": [
+            "1",
+            "2"
+          ],
+          "question": "б",
+          "answer": "2",
+          "isAnswered": false,
+          "isCorrect": false
+        }
+      ],
+      "id": 56,
+      "isPassed": false,
+      "correctAnswers": 0,
+      "date": "2016-11-25T12:24:25.886Z"
+    },
+    {
+      "title": "тест4",
+      "questions": [
+        {
+          "question": "вв1",
+          "variants": [
+            "в1",
+            "в2"
+          ],
+          "answer": "2"
+        },
+        {
+          "variants": [
+            "1",
+            "2",
+            "3"
+          ],
+          "question": "вв2",
+          "answer": "1"
+        }
+      ],
+      "id": 57
+    },
+    {
+      "title": "5 тест",
+      "questions": [
+        {
+          "question": "вопр",
+          "variants": [
+            "да",
+            "нет"
+          ],
+          "answer": "2"
+        }
+      ],
+      "id": 58
+    }
+  ],
+  "users": [
+    {
+      "login": "user",
+      "testsPassed": [
+        {
+          "questions": [
+            {
+              "variants": [
+                "вар1",
+                "вар2"
+              ],
+              "quest": "вопрос 1",
+              "answer": "1",
+              "isAnswered": true,
+              "isCorrect": false
+            },
+            {
+              "variants": [
+                "вари1",
+                "вари2",
+                "вари3"
+              ],
+              "quest": "вопрос 2",
+              "answer": "3",
+              "isAnswered": true,
+              "isCorrect": false
+            },
+            {
+              "variants": [
+                "вариа1",
+                "вариа2"
+              ],
+              "quest": "вопрос 3",
+              "answer": "1",
+              "isAnswered": true,
+              "isCorrect": false
+            }
+          ],
+          "name": "Тест 1",
+          "correctAnswers": 0
+        }
+      ]
+    },
+    {
+      "login": "fafa",
+      "testsPassed": []
+    },
+    {
+      "login": "ra",
+      "testsPassed": []
+    },
+    {
+      "login": "tet",
+      "testsPassed": [
+        {
+          "questions": [
+            {
+              "variants": [
+                "вар1",
+                "вар2"
+              ],
+              "quest": "вопрос 1",
+              "answer": "1",
+              "isAnswered": true,
+              "isCorrect": true
+            },
+            {
+              "variants": [
+                "вари1",
+                "вари2",
+                "вари3"
+              ],
+              "quest": "вопрос 2",
+              "answer": "3",
+              "isAnswered": true,
+              "isCorrect": true
+            },
+            {
+              "variants": [
+                "вариа1",
+                "вариа2"
+              ],
+              "quest": "вопрос 3",
+              "answer": "1",
+              "isAnswered": true,
+              "isCorrect": true
+            }
+          ],
+          "name": "Тест 1",
+          "correctAnswers": 3
+        }
+      ]
+    },
+    {
+      "login": "gaga",
+      "testsPassed": []
+    }
+  ]
+}

@@ -11,7 +11,9 @@
     $stateProvider
       .state('graph', {
         url: '/graph',
-
+        data: {
+          noLogin: true
+        },
         views: {
           '': {
             templateUrl: 'app/modules/graph/common/template.html'
@@ -20,6 +22,9 @@
       })
       .state('graph.byTime', {
         url: '/byTime',
+        data: {
+          noLogin: true
+        },
         views: {
           '': {
             templateUrl: 'app/modules/graph/byTime/template.html',
@@ -30,6 +35,9 @@
       })
       .state('graph.growing', {
         url: '/growing',
+        data: {
+          noLogin: true
+        },
         views: {
           '': {
             templateUrl: 'app/modules/graph/growing/template.html',

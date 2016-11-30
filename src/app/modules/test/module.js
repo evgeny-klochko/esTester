@@ -24,6 +24,9 @@
       })
       .state('admin', {
         url: '/admin',
+        data: {
+          noLogin: false
+        },
         views: {
           '': {
             templateUrl: 'app/modules/test/management/review/template.html',

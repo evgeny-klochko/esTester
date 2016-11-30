@@ -7,5 +7,22 @@
       'esTester.modules',
       'esTester.directives',
       'ngStorage'
-    ]);
+    ])
+    .run(run);
+
+
+  function run($rootScope, $state, $stateParams, Auth) {
+    console.log('running');
+
+    $rootScope.$state = $state;
+    $rootScope.$stateParams = $stateParams;
+
+    $rootScope.user = null;
+
+    $rootScope.$on('$stateChangeStart',
+      function (event, toState) {
+        Auth.checkAccess(event, toState);
+      }
+    );
+  }
 }());

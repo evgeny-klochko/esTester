@@ -1,0 +1,90 @@
+.graph-canvas {
+  position: relative;
+  border-bottom: 2px solid #000;
+  border-left: 2px solid #000;
+  background-color: #eee;
+  margin: 20px auto;
+  text-align: right;
+
+  .x {
+    position:absolute;
+    top:100%;
+    width:100%;
+    padding:5px;
+  }
+  .y {
+    position:absolute;
+    transform:rotate(-90deg);
+    transform-origin: bottom left;
+    bottom:0;
+    padding:5px;
+  }
+  canvas {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: rotateX(180deg);
+  }
+  ul {
+    list-style: none;
+    .dot {
+      background: $elemColor;
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      position:absolute;
+      span {
+        display:none;
+        position:absolute;
+        top:-10px;
+        left:20px;
+        background: #f00;
+        color: #fff;
+        border-radius:3px;
+        padding:5px;
+        white-space:nowrap;
+        z-index:9999;
+      }
+      &:hover {
+        span {
+          display:block;
+        }
+      }
+    }
+    .bar {
+      background: $elemColor;
+      position:absolute;
+      bottom:0;
+      margin: 0 5px;
+
+      &:nth-of-type(even) {
+        background:#f00;
+      }
+      span {
+        display:none;
+        position:absolute;
+        top:-10px;
+        color: #fff;
+        border-radius:3px;
+        padding:5px;
+        white-space:nowrap;
+        z-index:9999;
+      }
+      &:hover {
+        span {
+          display:block;
+        }
+      }
+    }
+  }
+
+  #dotAnnotation {
+    visibility: hidden;
+    text-align: center;
+    padding: 5px;
+    color: #fff;
+    font-size: 16px;
+    position: absolute;
+    left: 0;
+  }
+}

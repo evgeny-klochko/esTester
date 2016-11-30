@@ -1,0 +1,30 @@
+.dropdown {
+  position:relative;
+
+  &:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 100px;
+    background-color: $elemColor;
+    right: -10px;
+    top: $headerHeight - 30px;
+
+    ul {
+      margin: 0;
+      padding: 15px 0;
+      list-style: none;
+      li {
+        margin: 0;
+        padding: 5px 15px;
+
+        &:hover{
+          background-color: $elemColorActive;
+        }
+      }
+    }
+  }
+}

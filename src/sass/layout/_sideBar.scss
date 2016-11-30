@@ -1,0 +1,39 @@
+.sideBar {
+  padding: 10px;
+  .header {
+    margin-bottom: 10px;
+    margin-top: 35px;
+    font-size: 24px;
+    border-bottom: 2px solid $elemColor;
+  }
+  .search {
+    border-bottom: 2px solid $elemColor;
+    label {
+      font-size: 14px;
+    }
+  }
+  .test-list {
+    padding: 5px;
+    border-bottom: 2px solid $elemColor;
+    height: 100px;
+    overflow-y: scroll;
+
+    &:hover {
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+      &::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+      }
+    }
+
+    &::-webkit-scrollbar {
+      width: 3px;
+      background-color: #ccc;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $elemColor;
+    }
+  }
+}

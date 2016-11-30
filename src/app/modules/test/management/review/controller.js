@@ -7,22 +7,42 @@
       $stateProvider
         .state('add', {
           url: '/admin/add',
-          templateUrl: 'app/modules/test/management/add/template.html',
-          controller: 'AddCtrl',
-          controllerAs: '$ctrl'
-
+          data: {
+            noLogin: false
+          },
+          views: {
+            '': {
+              templateUrl: 'app/modules/test/management/add/template.html',
+              controller: 'AddCtrl',
+              controllerAs: '$ctrl'
+            }
+          }
         })
         .state('edit', {
           url: '/admin/edit/:id',
-          templateUrl: 'app/modules/test/management/edit/template.html',
-          controller: 'EditCtrl',
-          controllerAs: '$ctrl'
+          data: {
+            noLogin: false
+          },
+          views: {
+            '': {
+              templateUrl: 'app/modules/test/management/edit/template.html',
+              controller: 'EditCtrl',
+              controllerAs: '$ctrl'
+            }
+          }
         })
         .state('color', {
           url: '/admin/color-settings',
-          templateUrl: 'app/modules/graph/graph-settings/template.html',
-          controller: 'GraphSettingsCtrl',
-          controllerAs: '$ctrl'
+          data: {
+            noLogin: false
+          },
+          views: {
+            '': {
+              templateUrl: 'app/modules/graph/graph-settings/template.html',
+              controller: 'GraphSettingsCtrl',
+              controllerAs: '$ctrl'
+            }
+          }
         })
       ;
     })

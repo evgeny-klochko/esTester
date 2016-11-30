@@ -1,0 +1,49 @@
+.pageTop {
+  height: $headerHeight;
+  background-color: $elemColor;
+  a.logo {
+    float: left;
+    text-transform: uppercase;
+    line-height: $headerHeight;
+    font-size: 24px;
+    text-decoration: none;
+    font-weight: 900;
+    color: $accentColor;
+  }
+  nav {
+    margin-left: 200px;
+    line-height: $headerHeight;
+    a{
+      padding: 10px;
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    a:hover {
+      color: $accentColor;
+
+    }
+    .user {
+      float: right;
+      width: 34px;
+      height: 34px;
+      background-image: url('../assets/img/user.png');
+      background-size: cover;
+      margin-top: $headerHeight/5;
+      cursor: pointer;
+    }
+    .settings {
+      float: right;
+      width: 16px;
+      height: 16px;
+      background-image: url('../assets/img/settings.png');
+      background-size: cover;
+      margin-top: $headerHeight/5;
+    }
+    .settings:hover, .user:hover {
+      transform: scale(1.05);
+    }
+  }
+}
