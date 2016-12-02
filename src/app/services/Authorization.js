@@ -16,7 +16,7 @@
     var rootUser = 'admin';
 
     vm.isAuth = function () {
-      if ($scope.$root.user) return true;
+      if ($sessionStorage.user) return true;
       return false;
     };
 

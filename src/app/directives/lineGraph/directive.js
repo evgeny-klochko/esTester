@@ -23,7 +23,10 @@
       scope.height = attrs.ngHeight;
       scope.max = Drawing.getMax(scope.data);
 
-      Drawing.drawingLine(scope.data, scope.width, scope.height, canvasElement, annotation);
+      canvasElement.width = scope.width;
+      canvasElement.height = scope.height;
+
+      Drawing.drawingLine(scope.data, canvasElement, annotation);
     }
   }
 }());

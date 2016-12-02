@@ -14,10 +14,8 @@
 
 		<div class="tab-item" ng-if=$ctrl.isActive(2)>
 			<p>Всего попыток сдать тест: {{$ctrl.dates.length}}</p>
-				<line-graph data={{$ctrl.toGraphDotted}} axis-x="дни" axis-y="max" ng-height="400" ng-width="600"></line-graph>
+			<line-graph data={{$ctrl.toGraphDotted}} axis-x="дни" axis-y="max" ng-height="400" ng-width="600"></line-graph>
 		</div>
 
 	</div> <!-- END TAB-CONTENT -->
 </div> <!-- END TABS -->
-
-<!-- ДЕЛАТЬ ДИРЕКТИВУ!!! -->

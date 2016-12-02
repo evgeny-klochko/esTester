@@ -1,35 +1,35 @@
 <h3>Распределение тестирования по времени</h3>
-	<div class="tabs">
+  <div class="tabs">
 
-		<div class="tab-controls">
-			<button ng-click="$ctrl.setActive(1)" ng-class="{active: $ctrl.isActive(1)}">по дням</button>
-			<button ng-click="$ctrl.setActive(2)" ng-class="{active: $ctrl.isActive(2)}">по часам</button>
-			<button ng-click="$ctrl.setActive(3)" ng-class="{active: $ctrl.isActive(3)}">по дням недели</button>
-		</div>
+    <div class="tab-controls">
+      <button ng-click="$ctrl.setActive(1)" ng-class="{active: $ctrl.isActive(1)}">по дням</button>
+      <button ng-click="$ctrl.setActive(2)" ng-class="{active: $ctrl.isActive(2)}">по часам</button>
+      <button ng-click="$ctrl.setActive(3)" ng-class="{active: $ctrl.isActive(3)}">по дням недели</button>
+    </div>
 
-		<div class="tab-item" ng-if=$ctrl.isActive(1)>
-			<h4>По дням: </h4>
-			<p>Всего попыток : {{$ctrl.dates.length}}</p>
-			<gistogram data={{$ctrl.toGraphDays}} axis-x="число" axis-y="max" ng-height="400" ng-width="600">
-			</gistogram>
-		</div> <!-- END TAB-ITEM -->
+    <div class="tab-item" ng-if=$ctrl.isActive(1)>
+      <h4>По дням: </h4>
+      <p>Всего попыток : {{$ctrl.dates.length}}</p>
+      <gistogram data={{$ctrl.toGraphDays}} axis-x="число" axis-y="max" ng-height="400" ng-width="600">
+      </gistogram>
+    </div> <!-- END TAB-ITEM -->
 
-		<div class="tab-item" ng-if=$ctrl.isActive(2)>
-			<h4>По часам: </h4>
-			<p>Всего попыток : {{$ctrl.dates.length}}</p>
-			<gistogram data={{$ctrl.toGraphHours}} axis-x="час" axis-y="max" ng-height="400" ng-width="600">
-			</gistogram>
-		</div>
+    <div class="tab-item" ng-if=$ctrl.isActive(2)>
+      <h4>По часам: </h4>
+      <p>Всего попыток : {{$ctrl.dates.length}}</p>
+      <gistogram data={{$ctrl.toGraphHours}} axis-x="час" axis-y="max" ng-height="400" ng-width="600">
+      </gistogram>
+    </div>
 
-		<div class="tab-item" ng-if=$ctrl.isActive(3)>
-			<h4>По дням недели: </h4>
-			<p>Всего попыток : {{$ctrl.dates.length}}</p>
+    <div class="tab-item" ng-if=$ctrl.isActive(3)>
+      <h4>По дням недели: </h4>
+      <p>Всего попыток : {{$ctrl.dates.length}}</p>
 
-			<!-- legend = null | inside | outside | both -->
-			<diagram data={{$ctrl.toGraphDayOfWeek}} ng-height="400" ng-width="600" legend="both">
-			</diagram>
+      <!-- legend = null | inside | outside | both -->
+      <diagram data={{$ctrl.toGraphDayOfWeek}} ng-height="400" ng-width="600" legend="both">
+      </diagram>
 
-		</div>
+    </div>
 
-	</div> <!-- END TAB-CONTENT -->
+  </div> <!-- END TAB-CONTENT -->
 </div> <!-- END TABS -->

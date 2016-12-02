@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html lang="ru" >
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Tester</title>
-  <link rel="stylesheet" type="text/css" href="css/vendors.css">
-  <link rel="stylesheet" type="text/css" href="css/styles.css">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Tester</title>
+    <link rel="stylesheet" type="text/css" href="css/vendors.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+  </head>
 
-<body ng-app="esTester">
-  <page-top></page-top>
+  <body ng-app="esTester">
+    <page-top></page-top>
+    <!-- <preloader x-time="2000"></preloader> -->
 
-  <ui-view>
-    <div class="container" >
-      <div class="greeting">
-        <h1>Добро пожаловать</h1>
-        <button ui-sref="tests">Пройти тест</button>
+    <ui-view>
+      <div class="container" >
+        <div class="greeting">
+          <h1>Добро пожаловать</h1>
+          <button ui-sref="tests">Пройти тест</button>
+        </div>
       </div>
-    </div>
-  </ui-view>
+    </ui-view>
 
-  <script type="text/javascript" src="js/vendors.js"></script>
-  <script type="text/javascript" src="js/angular.js"></script>
-  <script type="text/javascript" src="js/app.js"></script>
-</body>
+    <script type="text/javascript" src="js/vendors.js"></script>
+    <script type="text/javascript" src="js/angular.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+  </body>
 </html>

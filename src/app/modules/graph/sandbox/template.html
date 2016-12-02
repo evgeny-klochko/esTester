@@ -1,0 +1,22 @@
+<style>
+  .sandbox {
+    position: relative;
+  }
+  .sandbox span {
+    position: absolute;
+    left: 80px;
+    top: 90px;
+    font-size: 30px;
+  }
+
+  #sandbox {
+    background-color: #efefef;
+  }
+</style>
+
+<h3>Sandbox</h3>
+<div class="sandbox">
+  <canvas id="sandbox"></canvas>
+  <span> {{$ctrl.progress}}% </span>
+</div>
+<input type="number" min="0" max="100" ng-model="$ctrl.progress">

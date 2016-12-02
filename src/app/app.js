@@ -12,8 +12,6 @@
 
 
   function run($rootScope, $state, $stateParams, Auth) {
-    console.log('running');
-
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
 

@@ -33,6 +33,8 @@
       canvasLegend = document.getElementById('piechart-legend');
 
       canvas = document.getElementById('piechart');
+      canvas.width = scope.height;
+      canvas.height = scope.height;
       context = canvas.getContext('2d');
 
       for (i = 0; i < data.length; i += 1) {

@@ -17,24 +17,16 @@
 
     vm.isCurrent = isCurrent;
     vm.setCurrent = setCurrent;
-    vm.signout = signout;
 
     function isCurrent(index) {
       if (index === vm.currentTest) {
         return true;
       }
-
       return null;
     }
 
     function setCurrent(index) {
       vm.currentTest = index;
-    }
-
-
-    function signout() {
-      console.log('ff');
-      //  Auth.signout();
     }
   }
 }());

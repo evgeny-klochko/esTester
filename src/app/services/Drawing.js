@@ -36,9 +36,11 @@
       return max;
     }
 
-    function drawingLine(data, width, height, canvasElement, annotation) {
+    function drawingLine(data, canvasElement, annotation) {
       var canvas = canvasElement;
       var ctx = canvas.getContext('2d');
+      var width = canvasElement.width;
+      var height = canvasElement.height;
 
       var elements = [];
       var element = {};
@@ -64,18 +66,40 @@
       });
 
       ctx.stroke();
-
+      drawGrid(canvas, elements);
       //
       //  Annotations listener
       canvas.addEventListener('mousemove', function (event) {
         var mousePos = getMousePos(canvas, event);
 
         elements.forEach(function (item, index) {
-          if (Math.abs(item.x - mousePos.x) < 10
-            && Math.abs(item.y - mousePos.y) < 10) {
+          if (Math.abs(item.x - mousePos.x) < 5
+            && Math.abs(item.y - mousePos.y) < 5) {
             showAnnotation(index, item, data, annotation);
           }
         });
+      });
+    }
+
+    function drawGrid(canvasElement, elements) {
+      var canvas = canvasElement;
+      var ctx = canvas.getContext('2d');
+
+      elements.forEach(function (item) {
+        var x = item.x;
+        var y = item.y;
+
+        ctx.strokeStyle = '#bbb';
+        ctx.lineWidth = 1;
+
+        ctx.setLineDash([5, 10, 5]);
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.lineTo(x, 0);
+        ctx.moveTo(x, y);
+        ctx.lineTo(0, y);
+
+        ctx.stroke();
       });
     }
 
@@ -88,7 +112,7 @@
 
       setTimeout(function () {
         annotation.style.visibility = 'hidden';
-      }, 2000);
+      }, 3000);
     }
 
     function parseData(data) {

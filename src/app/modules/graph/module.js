@@ -46,6 +46,19 @@
           }
         }
       })
+      .state('graph.sandbox', {
+        url: '/sandbox',
+        data: {
+          noLogin: true
+        },
+        views: {
+          '': {
+            templateUrl: 'app/modules/graph/sandbox/template.html',
+            controller: 'SandboxCtrl',
+            controllerAs: '$ctrl'
+          }
+        }
+      })
     ;
   }
 }());

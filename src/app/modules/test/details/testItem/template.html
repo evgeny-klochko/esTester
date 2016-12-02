@@ -5,15 +5,10 @@
   </div>
 
   <div class="mdl-cell mdl-cell--9-col content">
-
-    <div class="mdl-grid">
-      <h3 class="mdl-cell mdl-cell--10-col">
-        Тест - {{$ctrl.currentTest.title}}
-        <button class="close-test" ng-click="$ctrl.closeTest()">
-          Закрыть
-        </button>
-      </h3>
-    </div>
+    <h3>
+      Тест - {{$ctrl.currentTest.title}}
+      <span class="close" ng-click="$ctrl.closeTest()">&times;</span>
+    </h3>
 
     <div class="variants">
       <form ng-submit="$ctrl.submitTest()">

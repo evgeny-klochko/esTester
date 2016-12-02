@@ -1,5 +1,6 @@
 .content {
-  padding: 10px;
+
+  background-color: $blockBg;
   .question-item {
     background-color: $blockBg;
     padding: 10px;
@@ -26,9 +27,9 @@
 
 .go-in-test {
   background-color: $blockBg;
-  margin-top: 50px;
+
   text-align: center;
-  max-height: 250px;
+
   button {
     margin: 40px 0;
   }

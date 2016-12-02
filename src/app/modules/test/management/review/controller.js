@@ -54,10 +54,16 @@
     vm.testsList = Test.list();
     vm.currentTest = vm.testsList[0];
     vm.isHided = true;
+    vm.modalShown = false;
 
+    vm.toggleModal = toggleModal;
     vm.setCurrent = setCurrent;
     vm.deleteTest = deleteTest;
     vm.switcherShowHide = switcherShowHide;
+
+    function toggleModal() {
+      vm.modalShown = !vm.modalShown;
+    }
 
     function setCurrent(test) {
       vm.currentTest = test;
