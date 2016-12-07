@@ -1,15 +1,14 @@
-<div class="authorization">
-	<h2>Авторизация</h2>
-	<form name="authorization" class="authorization-form" ng-submit="$ctrl.signin(login)">
-		<input type="text"
-			name="login"
-			placeholder="Введите логин"
-			ng-model="$ctrl.login"
-			required
-			minlength="4"
-		>
-		<button type="submit">Войти</button>
-	</form>
-	<span ng-show="!$ctrl.correct">Повторите попытку!</span>
+<div class="content"  layout="column" layout-align="center center">
+  <div class="authorization">
+    <h2>Авторизация</h2>
+    <form name="authorization" class="authorization-form" ng-submit="$ctrl.signin(login)">
+      <md-input-container class="md-block">
+        <label>Введите логин длиннее 4 символов</label>
+        <input ng-model="$ctrl.login" required minlength="4">
+      </md-input-container>
+      <md-button class="md-raised md-primary" type="submit">Войти</md-button>
+    </form>
+    <span ng-show="!$ctrl.correct">Повторите попытку!</span>
+  </div>
 </div>
 

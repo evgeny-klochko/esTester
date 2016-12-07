@@ -1,50 +1,38 @@
+<div layout="row">
 
-<div class="container admin">
-  <div class="mdl-grid">
+  <admin-side-bar></admin-side-bar>
 
-    <div class="mdl-cell mdl-cell--3-col">
-      <side-bar></side-bar>
-      <div class="graph-settings">
-        <h5>Настройки графиков</h5>
-        <ul>
-          <li><a ui-sref="color">Изменить цвета</a></li>
+  <div layout="column" flex="fill" class="content">
+    <h3>{{$ctrl.currentTest.title}}</h3>
+
+      <div layout="row">
+        <md-button class="md-raised md-primary" ui-sref="add">Новый тест</md-button>
+        <md-button class="md-raised md-primary" ui-sref="edit({ id: $ctrl.currentTest.id })"> Редактировать тест</md-button>
+        <md-button class="md-raised md-primary" ng-click="$ctrl.toggleModal()">Удалить</md-button>
+      </div>
+
+      <div layout="row" class="test-description">
+        <p>
+          Количество вопросов - {{$ctrl.currentTest.questions.length}}
+          <span ng-show="$ctrl.isHided" ng-click="$ctrl.switcherShowHide()"> &#9658;</span>
+          <span ng-show="!$ctrl.isHided" ng-click="$ctrl.switcherShowHide()">&#9660;</span>
+        </p>
+        <ul ng-if="!$ctrl.isHided">
+          <li ng-repeat="question in $ctrl.currentTest.questions">
+            {{question.question}}
+          </li>
         </ul>
       </div>
-    </div>
 
-    <div class="mdl-cell mdl-cell--9-col content">
-      <div class="tests-list">
-          <h3>{{$ctrl.currentTest.title}}</h3>
-          <div class="control-buttons">
-            <button ui-sref="add">Новый тест</button>
-            <button ui-sref="edit({ id: $ctrl.currentTest.id })"> Редактировать тест</button>
-            <button ng-click="$ctrl.toggleModal()">Удалить</button>
-          </div>
-
-          <div class="test-description">
-            <p>
-              Количество вопросов - {{$ctrl.currentTest.questions.length}}
-              <span ng-show="$ctrl.isHided" ng-click="$ctrl.switcherShowHide()"> &#9658;</span>
-              <span ng-show="!$ctrl.isHided" ng-click="$ctrl.switcherShowHide()">&#9660;</span>
-            </p>
-
-            <ul ng-if="!$ctrl.isHided">
-              <li ng-repeat="question in $ctrl.currentTest.questions">
-                {{question.question}}
-              </li>
-            </ul>
-          </div>
-
-      </div>
-
-    </div>
   </div>
+
 </div>
-<modal-dialog show="$ctrl.modalShown" width="400px" height="35%" class="reset-settings">
-  <h4>Вы дейсвительно хотите удалить тест навсегда?</h4>
-  <div class="reset-buttons">
-    <button class="btn-yes" ng-click="$ctrl.deleteTest()">Да</button>
-    <button class="btn-no" ng-click="$ctrl.toggleModal()">Нет</button>
+
+<modal-dialog show="$ctrl.modalShown" width="45%" height="35%" class="reset-settings">
+  <h3>Вы дейсвительно хотите удалить тест навсегда?</h3>
+  <div class="ng-modal-dialog-footer">
+    <md-button class="md-raised md-warn" ng-click="$ctrl.deleteTest()">Да</md-button>
+    <md-button class="md-raised md-primary" ng-click="$ctrl.toggleModal()">Нет</md-button>
   </div>
 </modal-dialog>
 

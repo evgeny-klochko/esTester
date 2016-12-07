@@ -6,7 +6,10 @@
       'ui.router',
       'esTester.modules',
       'esTester.directives',
-      'ngStorage'
+      'ngStorage',
+      'ngAria',
+      'ngAnimate',
+      'ngMaterial'
     ])
     .run(run);
 

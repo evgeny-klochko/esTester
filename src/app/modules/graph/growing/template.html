@@ -3,19 +3,19 @@
 
 		<div class="tab-controls">
 			<span>График: </span>
-			<button ng-click="$ctrl.setActive(1)" ng-class="{active: $ctrl.isActive(1)}">точечный</button>
-			<button ng-click="$ctrl.setActive(2)" ng-class="{active: $ctrl.isActive(2)}">линейный</button>
+			<md-button class="md-raised md-primary" ng-class="{active: $ctrl.isActive(1)}" ng-click="$ctrl.setActive(1)">точечный</md-button>
+			<md-button class="md-raised md-primary" ng-class="{active: $ctrl.isActive(2)}" ng-click="$ctrl.setActive(2)">линейный</md-button>
 		</div>
 
 		<div class="tab-item" ng-if=$ctrl.isActive(1)>
 			Всего попыток сдать тест: {{$ctrl.dates.length}}
 			<dotted-graph data={{$ctrl.toGraphDotted}} axis-x="дата" axis-y="max" ng-height="400" ng-width="600"></dotted-graph>
-		</div> <!-- END TAB-ITEM -->
+		</div>
 
 		<div class="tab-item" ng-if=$ctrl.isActive(2)>
 			<p>Всего попыток сдать тест: {{$ctrl.dates.length}}</p>
 			<line-graph data={{$ctrl.toGraphDotted}} axis-x="дни" axis-y="max" ng-height="400" ng-width="600"></line-graph>
 		</div>
 
-	</div> <!-- END TAB-CONTENT -->
-</div> <!-- END TABS -->
+	</div>
+</div>

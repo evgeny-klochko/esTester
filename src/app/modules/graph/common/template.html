@@ -1,20 +1,43 @@
+<div layout="row">
 
-<div class="container">
-	<div class="mdl-grid">
 
-		<div class="mdl-cell mdl-cell--3-col sideBar">
-			<h3>Графики</h3>
-			<ul>
-				<li ui-sref="graph.byTime">Распределение тестрирования по времени</li>
-				<li ui-sref="graph.growing">Динамика роста</li>
-				<li ui-sref="graph.sandbox">sandbox</li>
-			</ul>
-		</div>
-
-		<div class="mdl-cell mdl-cell--9-col content">
-			<ui-view>
-			</ui-view>
-		</div> <!-- END GRAPH-CONTAINER -->
-
-	</div>
+  <md-button class="md-icon-button openMenu"
+    aria-label="open menu"
+    ng-click="$ctrl.toggleSidee()"
+    hide-gt-sm
+    >
+    <md-icon md-svg-icon="assets/img/menu.svg"></md-icon>
+  </md-button>
+  
+  <div layout="column" class="side" hide-xs hide-sm>
+    <h3>Графики</h3>
+    <ul>
+      <li ui-sref="graph.byTime" ng-click="$ctrl.setActive(1)" ng-class="{active: $ctrl.isActive(1)}">Распределение тестрирования по времени</li>
+      <li ui-sref="graph.growing" ng-click="$ctrl.setActive(2)" ng-class="{active: $ctrl.isActive(2)}">Динамика роста</li>
+      <li ui-sref="graph.sandbox" ng-click="$ctrl.setActive(3)" ng-class="{active: $ctrl.isActive(3)}">sandbox</li>
+    </ul>
+  </div>
+  
+  <div class="side under-content" ng-if="$ctrl.showMenu">
+    <h3>
+      <md-button class="md-icon-button"
+        aria-label="open menu"
+        ng-click="$ctrl.toggleSidee()"
+        hide-gt-sm
+      >
+        <md-icon md-svg-icon="assets/img/menu.svg"></md-icon>
+      </md-button>
+      Графики
+    </h3>
+    <ul>
+      <li ui-sref="graph.byTime">Распределение тестрирования по времени</li>
+      <li ui-sref="graph.growing">Динамика роста</li>
+      <li ui-sref="graph.sandbox">sandbox</li>
+    </ul>
+  </div>
+  
+  <div layout="column" flex="fill" class="content">
+    <ui-view>
+    </ui-view>
+  </div> <!-- END GRAPH-CONTAINER -->
 </div>

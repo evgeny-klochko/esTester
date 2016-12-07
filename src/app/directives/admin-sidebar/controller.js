@@ -3,9 +3,9 @@
 
   angular
     .module('esTester.directives')
-    .controller('SideBarCtrl', SideBarCtrl);
+    .controller('AdminSideBarCtrl', AdminSideBarCtrl);
 
-  function SideBarCtrl() {
+  function AdminSideBarCtrl() {
     var vm = this;
     vm.showMenu = false;
     vm.currentTest = 0;

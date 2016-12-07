@@ -1,8 +1,9 @@
 .graph-canvas {
+  height: auto;
   position: relative;
   border-bottom: 2px solid #000;
   border-left: 2px solid #000;
-  background-color: #ddd;
+  background-color: $blockBg3;
   margin: 20px auto;
   text-align: right;
 
@@ -83,7 +84,7 @@
     text-align: center;
     padding: 5px;
     color: #fff;
-    font-size: 16px;
+    font-size: 1.3em;
     position: absolute;
     left: 0;
   }

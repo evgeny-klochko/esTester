@@ -2,9 +2,9 @@
   <div class="tabs">
 
     <div class="tab-controls">
-      <button ng-click="$ctrl.setActive(1)" ng-class="{active: $ctrl.isActive(1)}">по дням</button>
-      <button ng-click="$ctrl.setActive(2)" ng-class="{active: $ctrl.isActive(2)}">по часам</button>
-      <button ng-click="$ctrl.setActive(3)" ng-class="{active: $ctrl.isActive(3)}">по дням недели</button>
+      <md-button class="md-raised md-primary" ng-click="$ctrl.setActive(1)" ng-class="{active: $ctrl.isActive(1)}">по дням</md-button>
+      <md-button class="md-raised md-primary" ng-click="$ctrl.setActive(2)" ng-class="{active: $ctrl.isActive(2)}">по часам</md-button>
+      <md-button class="md-raised md-primary" ng-click="$ctrl.setActive(3)" ng-class="{active: $ctrl.isActive(3)}">по дням недели</md-button>
     </div>
 
     <div class="tab-item" ng-if=$ctrl.isActive(1)>

@@ -1,21 +1,49 @@
-<header class="pageTop">
-  <div class="container">
-    <a class="logo">Tester</a>
-    <nav>
+<md-grid-list md-cols="3" md-gutter="1em" md-row-height="fit" class="header">
+  <md-grid-tile md-colspan="1" md-colspan-xs="1" class="logo" >
+    <a>Tester</a>
+  </md-grid-tile>
+
+  <md-grid-tile md-colspan="1"  class="main-nav">
+    <nav flex hide-sm>
       <a ui-sref="tests">тесты</a>
       <a ui-sref="graph.byTime">Статистика</a>
-
-      <div class="user dropdown" ng-if="$ctrl.isAuth()">
-        <div class="dropdown-content">
-          <ul>
-            <li ng-click="$ctrl.signout()">Выйти</li>
-            <li>Профиль</li>
-            <li ng-click="$ctrl.save()">Сохранить</li>
-            <li ng-click="$ctrl.load()">Загрузить</li>
-          </ul>
-        </div>
-      </div>
-      <a class="settings" ui-sref="admin"></a>
     </nav>
-  </div>
-</header>
+
+    <div hide show-sm>
+      <md-menu-bar>
+
+        <md-menu>
+          <md-button class="md-icon-button md-primary" aria-label="open menu"  ng-click="$mdOpenMenu()">
+            <md-icon md-svg-icon="assets/img/menu.svg"></md-icon>
+          </md-button>
+          <md-menu-content class="main-nav-small-content">
+              <a ui-sref="tests">тесты</a>
+              <a ui-sref="graph.byTime">Статистика</a>
+          </md-menu-content>
+        </md-menu>
+
+      </md-menu-bar>
+    </div>
+  </md-grid-tile>
+
+  <md-grid-tile md-colspan="1">
+      <md-button class="md-fab md-primary" aria-label="Settings" ui-sref="admin">
+        <md-icon md-svg-src="assets/img/settings.svg"></md-icon>
+      </md-button>
+
+      <md-menu-bar>
+        <md-menu class="dropdown-menu">
+          <md-button class="md-fab md-primary" aria-label="Profile" ng-click="$mdOpenMenu()">
+            <md-icon md-svg-src="assets/img/avatar.svg"></md-icon>
+          </md-button>
+          <md-menu-content class="dropdown-menu-content">
+            <ul>
+              <li ng-click="$ctrl.signout()">Выход</li>
+            </ul>
+          </md-menu-content>
+
+        </md-menu>
+      </md-menu-bar>
+  </md-grid-tile>
+
+</md-grid-list>

@@ -1,52 +1,52 @@
-<div class="container mdl-grid">
+<div layout="row">
 
-  <div class="mdl-cell mdl-cell--3-col">
-    <side-bar></side-bar>
-  </div>
+  <admin-side-bar></admin-side-bar>
 
-  <div class="mdl-cell mdl-cell--9-col content">
+  <div layout="column" flex="auto" class="content">
     <h3>Создать новый тест</h3>
-    <div class="test-description">
-      <form class="new-test" ng-submit="$ctrl.create($ctrl.test)">
-        <div class="test-name">
-          <input type="text" 
-            name="test-name" 
-            required
-            placeholder="Название теста" 
-            ng-model="$ctrl.test.title">
-        </div>
+    <div class="test-description" layout="column">
+      <form name="newTestForm" ng-submit="$ctrl.create($ctrl.test)">
+
+        <md-input-container class="md-block">
+          <label>Название теста</label>
+          <input required name="testName" ng-model="$ctrl.test.title">
+        </md-input-container>
 
         <div class="new-question"
           ng-repeat="($questIndex, question) in $ctrl.test.questions track by $index">
-          <span class="delete-button top" ng-click="$ctrl.deleteQuestion($questIndex)">&times;</span>
+          <span class="btn-small delete" ng-click="$ctrl.deleteQuestion($questIndex)">&times;</span>
 
-          <input type="text" 
-            name="question" 
-            required 
-            placeholder="Вопрос" 
-            ng-model="$ctrl.test.questions[$questIndex].question">
+          <md-input-container class="md-block">
+            <label>Вопрос {{$index + 1}}</label>
+            <input required name="question_{{$questIndex}}" ng-model="$ctrl.test.questions[$questIndex].question">
+          </md-input-container>
 
-          <div class="new-variants">
-            <input ng-repeat="($varIndex, variant) in $ctrl.test.questions[$questIndex].variants track by $index" 
-              type="text" 
-              name="variant_{{$varIndex}}" 
-              required
-              placeholder="Варианты ответов" 
-              ng-model="$ctrl.test.questions[$questIndex].variants[$varIndex]">
-            <span class="delete-button bottom" ng-click="$ctrl.deleteVariant($questIndex)">&times;</span>
-            <span class="plus" ng-click="$ctrl.addVariant($questIndex)">+</span>
+          <div class="variants">
+            <h5>Варианты ответов</h5>
+            <div layout="row"  layout-wrap layout-align="space-between center">
+              <md-input-container  flex="45" ng-repeat="($varIndex, variant) in $ctrl.test.questions[$questIndex].variants track by $index">
+                <label>Вариант {{$index + 1}}</label>
+                <input required
+                  name="variant_{{$varIndex}}"
+                  ng-model="$ctrl.test.questions[$questIndex].variants[$varIndex]">
+              </md-input-container>
+              <div layout="row" flex="45" layout-align="center start">
+                <span class="btn-small plus" ng-click="$ctrl.addVariant($questIndex)">+</span>
+                <span class="btn-small delete" ng-click="$ctrl.deleteVariant($questIndex)">&times;</span>
+              </div>
+            </div>
           </div>
-
-          <input type="text" 
-            name="answer_{{$questIndex}}" 
-            required 
-            placeholder="Ответ" 
+          <md-input-container class="md-block">
+            <label>Ответ</label>
+            <input
+            name="answer_{{$questIndex}}"
+            required
             ng-model="$ctrl.test.questions[$questIndex].answer">
-          <span class="plus" ng-show="$last" ng-click="$ctrl.addQuestion()">+</span>
+          </md-input-container>
 
         </div>
-
-        <input type="submit" name="submit-test" value="Создать">
+        <span class="btn-small plus" ng-click="$ctrl.addQuestion()">+</span>
+        <md-button type="submit" class="md-raised md-primary">Создать</md-button>
 
       </form>
     </div>

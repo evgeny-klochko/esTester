@@ -1,49 +1,50 @@
-<div class="container">
-  <div class="mdl-grid">
+<div layout="row">
+  <admin-side-bar></admin-side-bar>
 
-    <div class="mdl-cell mdl-cell--3-col">
-      <side-bar></side-bar>
-      <div class="graph-settings">
-        <h5>Настройки графиков</h5>
-        <ul>
-          <li><a ui-sref="color">Изменить цвета</a></li>
-        </ul>
-      </div>
-    </div>
+  <div layout="column" flex="auto" class="content color-settings">
 
-    <div class="mdl-cell mdl-cell--9-col color-settings">
-
-      <button ng-click='$ctrl.toggleModal()'>Сбросить настройки</button>
+      <md-button class="md-raised md-warn" ng-click='$ctrl.toggleModal()'>Сбросить настройки</md-button>
       <h4>Гистограмма</h4>
-        <p ng-repeat="color in $ctrl.gistogramColors">
+      <div layout="row">
+        <span ng-repeat="color in $ctrl.gistogramColors">
           <input type="color" name="c1" value="{{color}}" ng-model="$ctrl.gistogramColors[$index]">
-        </p>
+        </span>
+      </div>
 
       <h4>Точечный</h4>
+      <div layout="row">
         <p ng-repeat="color in $ctrl.dottedColor">
           <input type="color" name="c2" value="{{color}}" ng-model="$ctrl.dottedColor[$index]">
         </p>
-
+      </div>
       <h4>Диаграмма</h4>
+      <div layout="row">
         <p ng-repeat="color in $ctrl.diagramColor">
           <input type="color" name="c3" value="{{color}}" ng-model="$ctrl.diagramColor[$index]">
         </p>
-
+      </div>
       <h4>Линейный</h4>
+      <div layout="row">
         <p ng-repeat="color in $ctrl.linedColor">
           <input type="color" name="c3" value="{{color}}" ng-model="$ctrl.linedColor[$index]">
         </p>
+      </div>
+  </div>
 
+  <modal-dialog show="$ctrl.modalShown" width="50%" height="40%" class="reset-settings">
+    <h3>Осторожно, все настройки будут потеряны!</h3>
+    <h5>Сбросить?</h5>
+    <div class="ng-modal-dialog-footer">
+      <md-button layout-align="center center"
+        class="md-raised md-warn"
+        ng-click="$ctrl.$ctrl.reset()">Ок
+      </md-button>
+      <md-button layout-align="center center"
+        class="md-raised md-primary"
+        ng-click="$ctrl.toggleModal()">нет
+      </md-button>
     </div>
-
-      <modal-dialog show="$ctrl.modalShown" width="650px" height="40%" class="reset-settings">
-        <h4>Осторожно, все настройки будут потеряны!</h4>
-        <h5>Сбросить?</h5>
-        <div class="reset-buttons">
-          <button class="btn-yes" ng-click="$ctrl.reset()">Да</button>
-          <button class="btn-no" ng-click="$ctrl.toggleModal()">Нет</button>
-        </div>
-      </modal-dialog>
+  </modal-dialog>
 
   </div>
 </div>

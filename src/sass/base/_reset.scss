@@ -6,8 +6,15 @@ footer, header, hgroup, menu, nav, section {
 
 ul {
 	list-style: none;
+	margin: 0;
+    padding: 0;
 }
 
-input:focus, button:focus {
-	outline: none;
+a:focus, li:focus, button:focus, span:focus, input:focus {
+  outline: none;
+}
+
+
+md-menu-bar {
+  padding: 0;
 }

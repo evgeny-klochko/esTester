@@ -1,17 +1,5 @@
-.content {
-  h3 {
-    border-bottom: 2px solid $elemColor;
-  }
-  .test-description {
-    padding: 10px;
-  }
-  .control-buttons {
-    padding: 10px;
-  }
-}
 .new-test {
   width: 70%;
-
   input {
     width: 92%;
     padding: 5px 10px;
@@ -58,5 +46,13 @@
     input {
       margin-left: 20px;
     }
+  }
+}
+
+.test-about {
+  text-align: center;
+
+  p {
+    font-size: 1.2em;
   }
 }

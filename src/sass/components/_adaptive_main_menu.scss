@@ -1,0 +1,13 @@
+  .main-nav-small-content {
+    background-color: #1C90F3;
+    min-width: 130px !important;
+    a{
+      color: #fff;
+      font-size: 1.3em;
+      text-decoration: none;
+      text-transform: lowercase;
+      &:hover {
+        box-shadow: 1px 1px 1px #000;
+      }
+    }
+  }

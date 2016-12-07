@@ -1,8 +1,8 @@
-<div class="graph-canvas" style="width:{{width}}px; height:{{height}}px;">
+<div class="graph-canvas" style="max-width:{{width}}px; height:{{height}}px;">
     <div class="y" style="width:{{height}}px;">{{axisY + ': ' + max}}</div>
    	<div class="x">{{axisX}}</div>
 
-   	<ul id="bar">
+   	<ul>
 		<li ng-repeat="bar in data  track by $index" class="bar" ng-hide=$odd
 			style="height:{{bar.value / max * height}}px; width:{{width / length - 5}}px; left:{{$index / length * width}}px; background: {{color[0]}}"
 		>

@@ -1,0 +1,13 @@
+.content {
+  background-color: $blockBg;
+  margin-left: 15px;
+  min-height: 75vh;
+}
+
+@media screen  and (max-width: 960px) {
+  .content {
+    h3 {
+      padding-left: 40px;
+    }
+  }
+}

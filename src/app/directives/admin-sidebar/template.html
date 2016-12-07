@@ -6,7 +6,7 @@
   <md-icon md-svg-icon="assets/img/menu.svg"></md-icon>
 </md-button>
 
-<div layout="column" flex="25" class="side" hide-xs hide-sm>
+<div layout="column" flex="25"  class="side" hide-xs hide-sm>
   <h3>Меню</h3>
   <div class="search">
     <h5>Поиск</h5>
@@ -30,6 +30,12 @@
           {{test.title}}
         <span ng-class="{'passed-test' : test.isPassed}"></span>
       </li>
+    </ul>
+  </div>
+  <div class="graph-settings">
+    <h5>Настройки графиков</h5>
+    <ul>
+      <li><a ui-sref="color">Изменить цвета</a></li>
     </ul>
   </div>
 </div>
@@ -67,6 +73,12 @@
           {{test.title}}
         <span ng-class="{'passed-test' : test.isPassed}"></span>
       </li>
+    </ul>
+  </div>
+  <div class="graph-settings">
+    <h5>Персонализация</h5>
+    <ul>
+      <li ui-sref="color">Изменить цвета</li>
     </ul>
   </div>
 </div>

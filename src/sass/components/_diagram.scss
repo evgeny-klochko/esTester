@@ -1,9 +1,7 @@
-.diagram {
-  display: table-cell;
-  background-color: #eee;
+.graph-canvas-diagram {
+  background-color: $blockBg3;
   margin: 20px auto;
   padding: 20px;
-  vertical-align: middle;
   canvas {
     float: left;
     border-radius: 400px;

@@ -1,14 +1,24 @@
 body {
-	min-width: 480px;
+  min-width: 690px;
+  font-size: 16px;
 }
 
 h3 {
   margin: 0;
-  padding: 20px 10px;
+  padding: 10px;
+  border-bottom: 3px solid $elemColor;
 }
 
 .container {
-  width: $containerWidth;
+  box-sizing: border-box;
+  width: 90%;
   margin: 0 auto;
-  background-color: $containerBg;
+}
+
+@media screen  and (max-width: 960px) {
+  .container {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+  }
 }

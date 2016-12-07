@@ -16,7 +16,9 @@
         },
         views: {
           '': {
-            templateUrl: 'app/modules/graph/common/template.html'
+            templateUrl: 'app/modules/graph/common/template.html',
+            controller: 'GraphCtrl',
+            controllerAs: '$ctrl'
           }
         }
       })

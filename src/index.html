@@ -7,19 +7,21 @@
     <link rel="stylesheet" type="text/css" href="css/vendors.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
   </head>
-
   <body ng-app="esTester">
-    <page-top></page-top>
-    <!-- <preloader x-time="2000"></preloader> -->
+    <preloader x-time="1000" id="preload"></preloader>
 
-    <ui-view>
-      <div class="container" >
-        <div class="greeting">
-          <h1>Добро пожаловать</h1>
-          <button ui-sref="tests">Пройти тест</button>
+    <page-top ng-cloak></page-top>
+    <div class="container" ng-cloak>
+      <ui-view>
+        <div class="content" layout="column" layout-align="center center">
+            <h1>Добро пожаловать</h1>
+            <button ui-sref="tests">Пройти тест</button>
         </div>
-      </div>
-    </ui-view>
+      </ui-view>
+    </div>
+    <footer ng-cloak>
+      &copy; Все права защищены!
+    </footer>
 
     <script type="text/javascript" src="js/vendors.js"></script>
     <script type="text/javascript" src="js/angular.js"></script>

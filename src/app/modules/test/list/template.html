@@ -1,32 +1,38 @@
-	<div class="tests">
-		<div class="container">
-			<div class="mdl-grid">
-			
-				<div class="mdl-cell mdl-cell--3-col">
-					<side-bar></side-bar>
-				</div>
+<div layout="row">
+  
 
-				<div class="mdl-cell mdl-cell--9-col go-in-test">
-
-					<button ui-sref="test({ id: $ctrl.currentTest.id})" ng-disabled="$ctrl.currentTest.isPassed">Пройти тест</button>
-					<button ng-click="$ctrl.clearResults()" ng-disabled="!$ctrl.currentTest.isPassed">Очистить результаты</button>
-					<div class="test-about">
-
-						<p>Тест: {{$ctrl.currentTest.title}} </p>
-						<p>Количество вопросов: {{$ctrl.currentTest.questions.length}}</p>
-						<p ng-if="$ctrl.currentTest.isPassed">
-							Ваш результат: {{$ctrl.currentTest.correctAnswers}}/{{$ctrl.currentTest.questions.length}} <br>
-							Дата сдачи: {{$ctrl.currentTest.date | date:'short'}}
-
-						</p>
-
-					</div>
-
-				</div>
-
-			</div>
-		</div>
-	</div> <!-- END TESTS -->
+  <side-bar></side-bar>
 
 
-	<!-- trying make directive about form -->
+  <div class="content" layout="row" flex="auto" layout-align="center center">
+    <div class="test-about" layout="column" layout-align="center center">
+
+      <div  layout="row">
+        <md-button class="md-raised md-primary"
+          aria-label="testing"
+          ui-sref="test({ id: $ctrl.currentTest.id})"
+          ng-disabled="$ctrl.currentTest.isPassed">
+          Пройти тест
+        </md-button>
+        <md-button class="md-raised md-primary"
+          aria-label="reset"
+          ng-click="$ctrl.clearResults()"
+          ng-disabled="!$ctrl.currentTest.isPassed">
+          Очистить результаты
+        </md-button>
+      </div>
+
+      <div layout="column">
+        <p>
+          Тест: {{$ctrl.currentTest.title}} <br>
+          Количество вопросов: {{$ctrl.currentTest.questions.length}}
+        </p>
+        <p ng-if="$ctrl.currentTest.isPassed">
+          Ваш результат: {{$ctrl.currentTest.correctAnswers}}/{{$ctrl.currentTest.questions.length}} <br>
+          Дата сдачи: {{$ctrl.currentTest.date | date:'short'}}
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -9,6 +9,7 @@
     var vm = this;
 
     var activeTab = 1;
+    vm.showMenu = false;
 
     vm.dates = DatePassing.list();
 
@@ -17,6 +18,12 @@
 
     vm.isActive = isActive;
     vm.setActive = setActive;
+    vm.toggleSidee = toggleSidee;
+
+    function toggleSidee() {
+      console.log('working');
+      vm.showMenu = !vm.showMenu;
+    }
 
     function isActive(value) {
       if (value === activeTab) return true;

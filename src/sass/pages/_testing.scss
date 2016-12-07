@@ -1,36 +1,28 @@
-.content {
+.test-in-progress {
+  padding: 15px;
+}
 
-  background-color: $blockBg;
-  .question-item {
-    background-color: $blockBg;
-    padding: 10px;
-    margin: 5px 0;
-  }
-  .variants {
-    label {
-      display: block;
+.test-description {
+  padding: 15px;
+  .new-question {
+    margin-left: 20px;
+    padding: 10px 0;
+
+    &:nth-of-type(odd) {
+      background-color: $blockBg3;
     }
-    span {
-      display: block;
-      margin: 5px 0;
+    &:nth-of-type(even) {
+      background-color: $blockBg2;
     }
-    input {
-    }
-    .error {
-      color: #DF131D;
-    }
-    .correct{
-      color: #2D882D;
+
+    .variants {
+      border: 1px solid $blockBg4;
+      padding-left: 30px;
     }
   }
 }
-
-.go-in-test {
-  background-color: $blockBg;
-
-  text-align: center;
-
-  button {
-    margin: 40px 0;
+@media screen  and (max-width: 960px) {
+  .test-in-progress {
+    margin-left: 0;
   }
 }

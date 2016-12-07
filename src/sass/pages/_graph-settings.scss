@@ -1,36 +1,7 @@
-.graph-settings {
-  background-color: $blockBg;
-  a {
-    color: #000;
-    text-decoration: none;
-  }
-}
 .color-settings {
-  p {
-    display: inline-block;
-    margin-right: 20px;
-    input {
-      &:hover {
-        transform: scale(1.05);
-      }
-    }
-  }
-}
-
-.reset-settings {
-  transition: top 1s ease-out 0.5s;
-  h4, h5 {
-    text-align: center;
-  }
-  .reset-buttons{
-    margin-top: 70px;
-    text-align: center;
-
-    .btn-yes {
-      background-color: #2D882D;
-    }
-    .btn-no {
-      background-color: #DF131D;
-    }
+  padding: 15px;
+  .md-raised {
+    width: 200px;
+    margin: 15px auto;
   }
 }

@@ -1,28 +1,24 @@
 .authorization {
-	width: 50%;
-	margin: 25vh auto;
-	padding: 50px 10px;
-	text-align: center;
-	border: 1px solid $elemColor;
-	border-radius: $borderRd;
-	h2 {
-		margin: 20px;
-		padding: 0;
-	}
-	input {
-		padding: 4px 10px;
-		border: none;
-		border-radius: $borderRd;
-	}
-	.ng-invalid {
-		input {
-			background-color: rgba(255, 0, 0, 0.3);
-		}
-	}
-	.ng-valid {
-		input {
-			background-color: rgba(0, 255, 0, 0.3);
-		}
-	}
+  width: 50%;
+  margin: 0 auto;
+  padding: 50px 10px;
+  text-align: center;
+  border: 2px solid $elemColor;
+  border-radius: $borderRd;
+  h2 {
+    margin: 20px;
+    padding: 0;
+  }
+  .md-block {
+    width: 70%;
+    margin: 0 auto;
+  }
 }
 
+@media screen  and (max-width: 960px) {
+  .authorization  {
+    .md-block {
+      width: 90%;
+    }
+  }
+}
