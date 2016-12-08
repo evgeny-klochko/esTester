@@ -9,10 +9,16 @@
       'ngStorage',
       'ngAria',
       'ngAnimate',
-      'ngMaterial'
+      'ngMaterial',
+      'angular-loading-bar'
     ])
-    .run(run);
+    .run(run)
+    .config(['cfpLoadingBarProvider', loadingBar]);
 
+  function loadingBar(cfpLoadingBarProvider) {
+    cfpLoadingBarProvider.includeBar = false;
+    cfpLoadingBarProvider.spinnerTemplate = '<div id="preloader"><div></div></div>';
+  }
 
   function run($rootScope, $state, $stateParams, Auth) {
     $rootScope.$state = $state;

@@ -8,7 +8,7 @@ input[type="radio"]:after {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    border: 7px solid $elemColorActive;
+    border: 6px solid $elemColorActive;
 }
 input[type="radio"]:checked:before {
    box-sizing: border-box;
@@ -32,11 +32,39 @@ input[type="radio"]:checked:after {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    border: 7px solid $elemColorActive;
+    border: 6px solid $elemColorActive;
 }
 input[type="radio"]:disabled:after {
-    border: 7px solid $blockBg2;
+    border: 6px solid $blockBg2;
 }
 input[type="radio"]:disabled:after {
-    border: 7px solid $blockBg2;
+    border: 6px solid $blockBg2;
+}
+.correct {
+    input[type="radio"]:checked:before {
+        box-sizing: border-box;
+        content: "";
+        display: block;
+        position: relative;
+        left: -4px;
+        top: -6px;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background-color: green;
+    }
+}
+.error {
+    input[type="radio"]:checked:before {
+        box-sizing: border-box;
+        content: "";
+        display: block;
+        position: relative;
+        left: -4px;
+        top: -6px;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background-color: red;
+    }
 }

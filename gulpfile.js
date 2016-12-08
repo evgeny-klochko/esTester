@@ -28,7 +28,9 @@ const paths = {
       './node_modules/ngstorage/ngStorage.min.js',
       './node_modules/angular-aria/angular-aria.min.js',
       './node_modules/angular-animate/angular-animate.min.js',
-      './node_modules/angular-material/angular-material.min.js'
+      './node_modules/angular-material/angular-material.min.js',
+      './node_modules/angular-loading-bar/src/loading-bar.js',
+      './node_modules/ng-infinite-scroll/build/ng-infinite-scroll.min.js'
     ],
     vendors: [
       './node_modules/material-design-lite/material.min.js'
@@ -41,7 +43,8 @@ const paths = {
     main: dirs.src + '/sass/**/*.scss',
     vendors: [
       './node_modules/material-design-lite/material.min.css',
-      './node_modules/angular-material/angular-material.min.css'
+      './node_modules/angular-material/angular-material.min.css',
+      './node_modules/angular-loading-bar/src/loading-bar.css'
     ]
   },
   assets: dirs.src + '/assets/**/*.*',

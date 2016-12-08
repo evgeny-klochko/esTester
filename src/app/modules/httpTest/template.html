@@ -1,0 +1,73 @@
+<style type="text/css">
+.description {
+  height: 100%;
+}
+.wrapper {
+  height: 100%;
+  padding: 15px;
+  position: relative;
+}
+.dashed {
+  height: 30px;
+  background-color: transparent;
+  border-bottom: 2px dashed #aaa;
+  color: #aaa;
+  font-size: 1em;
+}
+.dashed:hover {
+  border: none;
+  cursor: pointer;
+}
+.comment {
+  margin-left: 30px;
+}
+.comment:nth-of-type(odd) {
+  background-color: #ddd;
+}
+.test-list ul{
+  border-bottom: 3px solid #0af;
+}
+.search {
+  padding-top: 15px;
+}
+</style>
+<button ng-click="$ctrl.start()">start preloading</button>
+<div layout="row">
+  <div layout="column" flex="25" class="side test-list">
+    <h3>Меню</h3>
+    <div class="search">
+      <md-input-container class="md-block">
+        <label>userId</label>
+         <input ng-model="$ctrl.searchInput">
+      </md-input-container>
+    </div>
+    <ul scroll="$ctrl.loadMore">
+      <li ng-repeat="post in $ctrl.posts track by $index" ng-click="$ctrl.getPost(post.id)">
+        {{post.id}}
+      </li>
+      <li ng-click="$ctrl.loadMore()" class="dashed">Загрузить еще</li>
+    </ul>
+  </div>
+  <div layout="column" flex="75" class="content">
+    <h3 ng-click="$ctrl.count()">Пост № {{$ctrl.post.id}}</h3>
+    <div class="wrapper">
+      <div class="description" layout="column" layout-align="start center">
+        <div layout="row">
+          <span>id: {{$ctrl.post.id}}</span><span>userId: {{$ctrl.post.userId}}</span>
+        </div>
+        <div layout="row">
+          <h5>{{$ctrl.post.title}}</h5>
+        </div>
+        <div layout="row">
+          <p>{{$ctrl.post.body}} <span class="dashed" ng-click="$ctrl.getComments($ctrl.post.id)">Комментарии</span></p>
+        </div>
+        <div class="comment" ng-if="$ctrl.comments" ng-repeat="comment in $ctrl.comments">
+          <h6>user {{comment.id}} - {{comment.name}}</h6>
+          <p>{{comment.body}} - {{comment.email}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- loading -->

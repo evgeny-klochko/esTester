@@ -4,7 +4,8 @@
   angular
     .module('esTester.modules.test', [
       'esTester.modules.test.management',
-      'esTester.modules.test.details'
+      'esTester.modules.test.details',
+      'cfp.loadingBar'
     ])
     .config(config);
 
@@ -31,6 +32,16 @@
           '': {
             templateUrl: 'app/modules/test/management/review/template.html',
             controller: 'AdminCtrl',
+            controllerAs: '$ctrl'
+          }
+        }
+      })
+      .state('httpTest', {
+        url: '/httpTest',
+        views: {
+          '': {
+            templateUrl: 'app/modules/httpTest/template.html',
+            controller: 'HttpTestCtrl',
             controllerAs: '$ctrl'
           }
         }

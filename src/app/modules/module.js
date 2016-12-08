@@ -5,6 +5,8 @@
     .module('esTester.modules', [
       'esTester.modules.test',
       'esTester.modules.graph',
-      'esTester.modules.auth'
+      'esTester.modules.auth',
+      'cfp.loadingBar',
+      'infinite-scroll'
     ]);
 }());
