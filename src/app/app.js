@@ -10,7 +10,8 @@
       'ngAria',
       'ngAnimate',
       'ngMaterial',
-      'angular-loading-bar'
+      'angular-loading-bar',
+      'visor'
     ])
     .run(run)
     .config(['cfpLoadingBarProvider', loadingBar]);
@@ -20,10 +21,11 @@
     cfpLoadingBarProvider.spinnerTemplate = '<div id="preloader"><div></div></div>';
   }
 
-  function run($rootScope, $state, $stateParams, Auth) {
+  function run($rootScope, $state, $stateParams, Auth, Visor) {
+    Visor.run();
+
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
-
     $rootScope.user = null;
 
     $rootScope.$on('$stateChangeStart',
